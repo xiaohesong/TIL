@@ -39,3 +39,8 @@ ROUND('123.654',2)
 
 - GROUP_CONCAT/CONCAT
 返回拼接的字符串. GROUP_CONCAT与`group by`使用,效果更佳.
+
+- `boolean`转换为汉字显示
+```sql
+select *, if(status>0,'激活','锁定') AS '操作状态' from car_bind_info_lock_logs where status is not null;
+```
