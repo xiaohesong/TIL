@@ -1,11 +1,12 @@
 # TIL(Today I Learn)
+> ## 记录每天自己学习到的东西,提到Issue.
+
+## 目录
+- [前端](#前端)
+- [后端#ruby](#ruby)
 
 
-
-### 记录每天自己学习到的东西,提到Issue.
-
-
-## 前端
+# 前端
 
 ### 安装
 
@@ -24,3 +25,10 @@
 - `yarn`
 
 [直接看官方文档吧](https://yarnpkg.com/lang/en/docs/install/#linux-tab)
+
+## 后端
+### ruby
+
+- [rails service 模式](https://medium.com/selleo/essential-rubyonrails-patterns-part-1-service-objects-1af9f9573ca1)
+
+- [rails queries 模式](https://medium.com/@blazejkosmowski/essential-rubyonrails-patterns-part-2-query-objects-4b253f4f4539)
