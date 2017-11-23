@@ -26,6 +26,9 @@
 
 [直接看官方文档吧](https://yarnpkg.com/lang/en/docs/install/#linux-tab)
 
+- [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
+
+
 ## 后端
 ### ruby
 
