@@ -34,6 +34,7 @@
 ### 学习链接
 #### css&html
 - [Learn to Code HTML & CSS](https://learn.shayhowe.com/html-css/)
+- [css-Learn CSS Layout](http://book.mixu.net/css/)
 
 #### js
 - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
