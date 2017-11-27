@@ -20,11 +20,12 @@
 
  [参考官方文档](https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server)
 
+
  [安装完成node的常见错误 -bash: /usr/sbin/node: No such file or directory](https://stackoverflow.com/questions/18130164/nodejs-vs-node-on-ubuntu-12-04)
 
 - `yarn`
 
-[直接看官方文档吧](https://yarnpkg.com/lang/en/docs/install/#linux-tab)
+  [直接看官方文档吧](https://yarnpkg.com/lang/en/docs/install/#linux-tab)
 
 - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
 
