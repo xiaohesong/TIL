@@ -38,7 +38,7 @@
 
 #### js
 - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
-
+- [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
 
 # 后端
 ### ruby
