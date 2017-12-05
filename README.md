@@ -35,7 +35,7 @@
 #### css&html
 - [Learn to Code HTML & CSS](https://learn.shayhowe.com/html-css/)
 - [css-Learn CSS Layout](http://book.mixu.net/css/)
-
+- [Concise courses for badass web developers](https://egghead.io/)
 #### js
 - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
 - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
