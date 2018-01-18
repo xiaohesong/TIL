@@ -31,7 +31,7 @@
   [直接看官方文档吧](https://yarnpkg.com/lang/en/docs/install/#linux-tab)
   
 ### 前端工具
-  - [github排名趋势](https://risingstars.js.org/2017/zh/)
+- [github排名趋势](https://risingstars.js.org/2017/zh/)
   
 ### 学习链接
 #### css&html
@@ -41,6 +41,7 @@
 #### js
 - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
 - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
+- [30天学习react](https://www.fullstackreact.com)
 
 # 后端
 ### ruby
