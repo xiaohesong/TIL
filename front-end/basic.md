@@ -1,0 +1,1 @@
+- `NaN` => Not a Number
