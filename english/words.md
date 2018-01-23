@@ -1,2 +1,3 @@
 - In order to do sth (为了做某事)
 - no longer in sth (不再在)
+- so far (至今)
