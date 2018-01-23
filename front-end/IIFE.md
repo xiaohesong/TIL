@@ -52,6 +52,12 @@ const name = () => console.log("my name xiaohesong")
 ```javascript
 (function() {console.log("say my name")})()
 ```
-运行了之后直接输出, 可以发现第一个`()`中间包裹的代码, 然后后面继续跟着一个`()`.后面的`()`就是执行的意思.
+运行了之后直接输出, 可以发现第一个`()`中间包裹的匿名函数, 然后后面继续跟着一个`()`.后面的`()`就是执行的意思.
 
 所以现在知道了为啥`IIFE`可以立即执行了吧.
+
+- 参考链接
+
+[函数表达式](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/function)
+
+[JavaScript: What the heck is an Immediately-Invoked Function Expression?](https://codeburst.io/javascript-what-the-heck-is-an-immediately-invoked-function-expression-a0ed32b66c18)
