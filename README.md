@@ -43,6 +43,9 @@
 - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
 - [30天学习react](https://www.fullstackreact.com)
 
+#### 前端新手学习库
+- [The Ultimate Guide to Learning Full Stack Web Development in 6 months, for $30](https://codeburst.io/the-ultimate-guide-to-learning-full-stack-web-development-in-6-months-for-30-72b3854a7458)
+
 # 后端
 ### ruby
 
