@@ -21,3 +21,5 @@ first: for (var i = 0; i < 3; i++) {
   }
 }
 ```
+
+[链接 JavaScript: The Label Statement](https://codeburst.io/javascript-the-label-statement-a391cef4c556)
