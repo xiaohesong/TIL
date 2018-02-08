@@ -57,5 +57,27 @@ WTF! Why?
   this.setState({name: "xiaohesong"}) // 4
 }
 ```
+上面的这段代码里的这四个会被塞进队列里进行批量操作.批量操作?
+```javascript
+Object.assign(state, {count: this.state.count + 1}, {count: this.state.count + 1}, ..., {name: "xiaohesong"})
+```
+
+如果把上面的代码换成异步的呢?
+```javascript
+componentDidMount(){
+    setTimeout(() => {
+        this.setState(count: this.state.count + 1)
+        this.setState(count: this.state.count + 1)
+    })
+}
+```
+可以发现,如果改成这样,也会触发re-render. 可是这是为啥`setTimeout`里的两次`this.state.count`会成功呢?
+这个还得继续探索.
 
 
+### 总结
+
+1. `setState`操作,默认情况下是每次调用, 都会`re-render`一次,除非你手动`shouldComponentUpdate`为`false`.
+`react`为了减少`rerender`的次数,会进行一个浅合并.将多次`re-render`减少到一次`re-render`.
+
+2. `setState`之后,无法立即获取到`this.state`的值,是因为在`setState`的时候,他只会把操作放到队列里.
