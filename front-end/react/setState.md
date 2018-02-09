@@ -81,3 +81,8 @@ componentDidMount(){
 `react`为了减少`rerender`的次数,会进行一个浅合并.将多次`re-render`减少到一次`re-render`.
 
 2. `setState`之后,无法立即获取到`this.state`的值,是因为在`setState`的时候,他只会把操作放到队列里.
+
+
+#### 参考链接
+1. [anhuiliujun react Api之setState与forceUpdate](https://anhuiliujun.github.io/react/2016/12/03/react-setState-forceUpdate.html)
+2. [setState() Gate](https://medium.com/javascript-scene/setstate-gate-abc10a9b2d82)
