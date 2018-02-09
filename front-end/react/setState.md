@@ -71,7 +71,7 @@ componentDidMount(){
     })
 }
 ```
-可以发现,如果改成这样,也会触发re-render. 可是这是为啥`setTimeout`里的两次`this.state.count`会成功呢?
+可以发现,如果改成这样,也会触发re-render. 可是这是为啥`setTimeout`里的两次`this.state.count`会成功,而不是像上面一样,浅合并成一个呢?
 这个还得继续探索.
 
 
