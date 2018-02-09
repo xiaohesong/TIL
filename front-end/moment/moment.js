@@ -1,0 +1,4 @@
+- moment() ==> 当前时间
+- moment.endOf('month') ==> 当月的最后一天
+- moment(date).endOf("month") => 指定日期的最后一天
+- moment().endOf('month').get('date') => 获取最后一个月的天數
