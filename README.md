@@ -43,6 +43,7 @@
 - [css-Learn CSS Layout](http://book.mixu.net/css/)
 - [Concise courses for badass web developers](https://egghead.io/)
 #### js
+- [Series - How JavaScript works: an overview of the engine, the runtime, and the call stack](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
 - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
 - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
 - [30天学习react](https://www.fullstackreact.com)
