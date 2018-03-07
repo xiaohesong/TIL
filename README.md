@@ -8,6 +8,7 @@
   - [学习链接](#学习链接)
     - [css/html](#csshtml)
     - [js](#js)
+    - [react](#react)
   
 - [后端#ruby](#ruby)
 
@@ -46,6 +47,8 @@
 - [Series - How JavaScript works: an overview of the engine, the runtime, and the call stack](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
 - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
 - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
+- [Learn Plain JavaScript from Top Articles for the Past Year (v.2018)](https://medium.mybridge.co/learn-plain-javascript-from-top-tutorials-for-the-past-year-v-2018-d964bc597a45)
+#### react
 - [30天学习react](https://www.fullstackreact.com)
 
 #### 前端新手学习库
