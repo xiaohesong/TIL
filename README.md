@@ -49,6 +49,7 @@
 - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
 - [Learn Plain JavaScript from Top Articles for the Past Year (v.2018)](https://medium.mybridge.co/learn-plain-javascript-from-top-tutorials-for-the-past-year-v-2018-d964bc597a45)
 #### react
+- [个人学习react记录](https://github.com/xiaohesong/ums/wiki)
 - [30天学习react](https://www.fullstackreact.com)
 
 #### 前端新手学习库
