@@ -29,15 +29,15 @@
 
 
 #### 后记
-- main
-  
-  这个是`package.json`里的一个参数，主要是设置对外暴露出去的文件。
-  
-  就是`import xx from packageName`.这个`package`对外暴露的东西.
-  
-- files
-  
-  这个是选择上传的哪些文件，如果不指定，那么就会按照你的文件目录来，(除却`ignore`的文件)。这个参数是一个数组。
-  
+  - main
 
-[更多参考](https://docs.npmjs.com/files/package.json)
+    这个是`package.json`里的一个参数，主要是设置对外暴露出去的文件。
+
+    就是`import xx from packageName`.这个`package`对外暴露的东西.
+
+  - files
+
+    这个是选择上传的哪些文件，如果不指定，那么就会按照你的文件目录来，(除却`ignore`的文件)。这个参数是一个数组。
+
+
+  [更多参考](https://docs.npmjs.com/files/package.json)
