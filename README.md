@@ -45,6 +45,7 @@
 - [Concise courses for badass web developers](https://egghead.io/)
 #### js
 - [Series - How JavaScript works: an overview of the engine, the runtime, and the call stack](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
+- [variables-lifecycle-and-why-let-is-not-hoisted](https://dmitripavlutin.com/variables-lifecycle-and-why-let-is-not-hoisted/)
 - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
 - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
 - [Learn Plain JavaScript from Top Articles for the Past Year (v.2018)](https://medium.mybridge.co/learn-plain-javascript-from-top-tutorials-for-the-past-year-v-2018-d964bc597a45)
