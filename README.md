@@ -3,13 +3,14 @@
 
 ## 目录
 - [前端](#前端)
+
   - [工具](#前端工具)
-  
-  - [学习链接](#学习链接)
-    - [css/html](#csshtml)
+
+  - [前端学习链接](#前端学习链接)
+    - [css/html](#csshtml)  
     - [js](#js)
     - [react](#react)
-  
+    
 - [后端#ruby](#ruby)
 
 
@@ -38,7 +39,7 @@
 - [github排名趋势](https://risingstars.js.org/2017/zh/)
 - [监控网站](https://www.fundebug.com/)
   
-### 学习链接
+### 前端学习链接
 #### css&html
 - [Learn to Code HTML & CSS](https://learn.shayhowe.com/html-css/)
 - [css-Learn CSS Layout](http://book.mixu.net/css/)
@@ -52,6 +53,8 @@
 #### react
 - [个人学习react记录](https://github.com/xiaohesong/ums/wiki)
 - [30天学习react](https://www.fullstackreact.com)
+#### blog
+- [Jake google developer](https://jakearchibald.com/)
 
 #### 前端新手学习库
 - [The Ultimate Guide to Learning Full Stack Web Development in 6 months, for $30](https://codeburst.io/the-ultimate-guide-to-learning-full-stack-web-development-in-6-months-for-30-72b3854a7458)
