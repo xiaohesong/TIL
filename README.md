@@ -44,6 +44,7 @@
 - [Learn to Code HTML & CSS](https://learn.shayhowe.com/html-css/)
 - [css-Learn CSS Layout](http://book.mixu.net/css/)
 - [Concise courses for badass web developers](https://egghead.io/)
+- [30-seconds-of-css](https://github.com/atomiks/30-seconds-of-css)
 #### js
 - [Series - How JavaScript works: an overview of the engine, the runtime, and the call stack](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
 - [variables-lifecycle-and-why-let-is-not-hoisted](https://dmitripavlutin.com/variables-lifecycle-and-why-let-is-not-hoisted/)
