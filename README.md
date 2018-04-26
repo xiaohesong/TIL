@@ -9,6 +9,7 @@
   - [前端学习链接](#前端学习链接)
     - [css/html](#csshtml)  
     - [js](#js)
+    - [flex](#flex)
     - [react](#react)
     
 - [后端#ruby](#ruby)
@@ -45,13 +46,15 @@
 - [css-Learn CSS Layout](http://book.mixu.net/css/)
 - [Concise courses for badass web developers](https://egghead.io/)
 - [30-seconds-of-css](https://github.com/atomiks/30-seconds-of-css)
-- [DIVE INTO FLEXBOX (awesomw)](https://bocoup.com/blog/dive-into-flexbox)
 #### js
 - [Series - How JavaScript works: an overview of the engine, the runtime, and the call stack](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
 - [variables-lifecycle-and-why-let-is-not-hoisted](https://dmitripavlutin.com/variables-lifecycle-and-why-let-is-not-hoisted/)
 - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
 - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
 - [Learn Plain JavaScript from Top Articles for the Past Year (v.2018)](https://medium.mybridge.co/learn-plain-javascript-from-top-tutorials-for-the-past-year-v-2018-d964bc597a45)
+#### flex
+- [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#article-header-id-2)
+- [DIVE INTO FLEXBOX](https://bocoup.com/blog/dive-into-flexbox)
 #### react
 - [个人学习react记录](https://github.com/xiaohesong/ums/wiki)
 - [30天学习react](https://www.fullstackreact.com)
