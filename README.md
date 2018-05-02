@@ -12,8 +12,13 @@
     - [js](#js)
     - [flex](#flex)
     - [react](#react)
+    - [blog](#blog) 
+  - [性能相关](#性能相关)
+    - [懒加载](#懒加载)
+    - [css/html](#csshtml)  
+    - [js](#js)
     
-- [后端#ruby](#ruby)
+- [后端ruby](#ruby)
 
 
 # 前端
@@ -61,6 +66,10 @@
 - [30天学习react](https://www.fullstackreact.com)
 #### blog
 - [Jake google developer](https://jakearchibald.com/)
+
+#### 性能相关
+  ##### 懒加载
+   - [Lazy Loading Images and Video](https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/)
 
 #### 前端新手学习库
 - [The Ultimate Guide to Learning Full Stack Web Development in 6 months, for $30](https://codeburst.io/the-ultimate-guide-to-learning-full-stack-web-development-in-6-months-for-30-72b3854a7458)
