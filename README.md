@@ -5,6 +5,8 @@
 ## 目录
 - [前端](#前端)
 
+  - [学习之道](#学习之道)
+
   - [工具](#前端工具)
 
   - [前端学习链接](#前端学习链接)
@@ -15,8 +17,6 @@
     - [blog](#blog) 
   - [性能相关](#性能相关)
     - [懒加载](#懒加载)
-    - [css/html](#csshtml)  
-    - [js](#js)
     
 - [后端ruby](#ruby)
 
@@ -41,6 +41,9 @@
 - `yarn`
 
   [直接看官方文档吧](https://yarnpkg.com/lang/en/docs/install/#linux-tab)
+
+### 学习之道
+- [如何成为伟大的前端人员](https://note.youdao.com/share/?id=6138f1140940b485a9229a6291c7b20f&type=note#/)
   
 ### 前端工具
 - [github排名趋势](https://risingstars.js.org/2017/zh/)
