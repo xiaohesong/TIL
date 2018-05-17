@@ -42,14 +42,13 @@ let second = 1;
   ```
   可以发现，如果不是放在最后一个，会有一个语法的错误.
   
-  - can not use for single argument
+  - can not use for single argument
   ```javascript
-  let object = {
-
-    // Syntax error: Can't use rest param in setter
+   let object = {
+      // Syntax error: Can't use rest param in setter
     set name(...value) {
         // do something
     }
-  };
+   };
   ```
   上面也会报错，因为这个`set`支持传入单个参数，但是`rest params`默认被视为多个参数，数组形式存在。
