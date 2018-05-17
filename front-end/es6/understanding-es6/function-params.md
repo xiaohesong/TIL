@@ -24,3 +24,32 @@ let second = 1;
 所以会报错。因为触发了`TDZ`的规则。
 
 ⚠️函数的参数体有自己的作用域和`TDZ`,他和函数内容时分开的。这就意味着参数体内的默认值不能访问函数体内的任何变量。
+
+- Rest Parameters
+  - rest params must be last
+  ```javascript
+  // Syntax error: Can't have a named parameter after rest parameters
+    function pick(object, ...keys, last) {
+        let result = Object.create(null);
+
+        for (let i = 0, len = keys.length; i < len; i++) {
+            result[keys[i]] = object[keys[i]];
+        }
+
+        return result;
+    }
+
+  ```
+  可以发现，如果不是放在最后一个，会有一个语法的错误.
+  
+  - can not use for single argument
+  ```javascript
+  let object = {
+
+    // Syntax error: Can't use rest param in setter
+    set name(...value) {
+        // do something
+    }
+  };
+  ```
+  上面也会报错，因为这个`set`支持传入单个参数，但是`rest params`默认被视为多个参数，数组形式存在。
