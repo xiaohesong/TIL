@@ -56,8 +56,30 @@ console.log(start.column);      // 1
 
 ##### array destructuring
 
+- 赋值
+
 ```javascript
 let users = ['xiaocai', 'xiaozhang', 'xiaohesong']
 let [,,xhs] = users
 console.log(xhs) //xiaohesong
+```
+
+- 拷贝
+
+在构造函数之前，是其他方式。
+```javascript
+// cloning an array in ECMAScript 5
+var colors = [ "red", "green", "blue" ];
+var clonedColors = colors.concat();
+
+console.log(clonedColors);      //"[red,green,blue]"
+```
+
+es6
+```javascript
+// cloning an array in ECMAScript 6
+let colors = [ "red", "green", "blue" ];
+let [ ...clonedColors ] = colors;
+
+console.log(clonedColors);      //"[red,green,blue]"
 ```
