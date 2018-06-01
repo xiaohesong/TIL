@@ -57,6 +57,7 @@
 - [30-seconds-of-css](https://github.com/atomiks/30-seconds-of-css)
 #### js
 - [Series - How JavaScript works: an overview of the engine, the runtime, and the call stack](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
+- [js 宏任务 微任务是怎么执行的](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
 - [variables-lifecycle-and-why-let-is-not-hoisted](https://dmitripavlutin.com/variables-lifecycle-and-why-let-is-not-hoisted/)
 - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
 - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
