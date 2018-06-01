@@ -6,3 +6,5 @@
 - no longer in sth (不再在)
 - so far (至今)
 - keep in mind (记住)
+
+- primitive values (原始值)
