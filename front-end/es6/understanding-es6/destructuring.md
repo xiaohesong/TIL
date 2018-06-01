@@ -1,4 +1,4 @@
-### [结构赋值](https://leanpub.com/understandinges6/read#leanpub-auto-destructuring-for-easier-data-access)
+### [解构赋值](https://leanpub.com/understandinges6/read#leanpub-auto-destructuring-for-easier-data-access)
 
 ##### object destructuring
 
