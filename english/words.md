@@ -8,3 +8,4 @@
 - keep in mind (记住)
 
 - primitive values (原始值)
+- type coercion (类型强制)
