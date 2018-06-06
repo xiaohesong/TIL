@@ -20,6 +20,8 @@
     
 - [后端ruby](#ruby)
 
+- [所读书籍](#所读书籍)
+
 
 # 前端
 
@@ -84,3 +86,7 @@
 - [rails service 模式](https://medium.com/selleo/essential-rubyonrails-patterns-part-1-service-objects-1af9f9573ca1)
 
 - [rails queries 模式](https://medium.com/@blazejkosmowski/essential-rubyonrails-patterns-part-2-query-objects-4b253f4f4539)
+
+
+# 所读书籍
+- [understanding es6](https://leanpub.com/understandinges6/)
