@@ -46,6 +46,9 @@
 
 ### 学习之道
 - [如何成为伟大的前端人员](https://note.youdao.com/share/?id=6138f1140940b485a9229a6291c7b20f&type=note#/)
+
+### 面试题库
+- [30-seconds-of-interviews](https://github.com/fejes713/30-seconds-of-interviews)
   
 ### 前端工具
 - [github排名趋势](https://risingstars.js.org/2017/zh/)
