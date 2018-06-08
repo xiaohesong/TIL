@@ -60,9 +60,70 @@ let uid = Symbol('uid')
 let obj = {
     [uid]: 'uid'
 }
-```
+
 console.log(Object.keys(obj)) // []
 console.log(Object.getOwnPropertyNames(obj)) // []
 console.log(Object.getOwnPropertySymbols(obj)) // [Symbol(uid)]
+```
 
-es6针对这个，添加了`Object.getOwnPropertySymbols`方法
+es6针对这个，添加了`Object.getOwnPropertySymbols`方法。
+
+ 是不是感觉很少用到Symbols.其实es6内部用的还是不少的。
+ 
+ - Symbol.hasInstance
+ 
+ 每个函数都有这个方法。或许你对这个方法不是很熟，他其实就是`instanceof`所做的事情。
+ 没错，es6给你重写了这个方法。
+ ```javascript
+function Xiao(){}
+const xiao = new Xiao
+xiao instanceof Xiao // true
+ ```
+ 实际上es6帮你那么干了
+ ```javascript
+ Xiao[Symbol.hasInstance](xiao)
+ ```
+ 
+ 这个是内部的方法，不支持重写，当然，我们可以在原型上改写。
+ 
+ ```javascript
+ Object.definePrototype(Xiao, Symbol.hasInstance, {
+    value: (v) => Boolean(v)
+ })
+ const x = new Xiao
+ x instanceof Xiao //true
+ 0 instanceof Xiao //false
+ 1 instanceof Xiao //true
+ ```
+ 可以发现，我们改写他返回对应的是否为boolean类型。
+ 
+ - Symbol.isConcatSpreadable
+ 
+ 这个和其他的一些属性不同，他是默认不存在一些标准对象上。简单的使用
+ 
+ ```javascript
+ let objs = {0: 'first', 1: 'second', length: 2, [Symbol.isConcatSpreadable]: true}
+ ['arrs'].concat(objs) //["arrs", "first", "second"]
+ ```
+ 
+ - Symbol.toPrimitive
+ 
+这个用的就多了，进行类型转换的时候，对象会进行尝试转换成原始类型，就是通过`toPrimitive`.这个方法，标准类型的原型上都存在。
+进行类型转换的时候，`toPrimitive`会被强制的调用一个参数，在规范中这个参数被称之为`hint`. 这个参数是三个值('number', 'string', 'default')其中的一个。
+顾名思义，`string`返回的是`string`, `number`返回的是`number`，`default`是没有特别指定，默认。
+
+那么什么是默认的情况呢？ 大多数的情况下，默认情况就是数字模式。(日期除外，他的默认情况视为字符串模式)
+
+- number mode
+在数字情况下的行为(优先级从高到低)
+  - 首先调用`valueOf`，如果是一个原始类型，那就返回。
+  - 如果前面不是原始值，那么就尝试调用`toString`，如果是原始值，那么就返回
+  - 如果都不存在，那么就报错
+
+- string mode
+在字符串的情况下，行为略有不同(优先级从高到低)
+  - 首先调用`toString`，如果是原始值，那么就返回
+  - 如果前面不是原始值，那么就尝试调用`valueOf`，如果是原始值，那么就返回
+  - 抛出错误
+  
+ 
