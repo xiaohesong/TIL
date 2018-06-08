@@ -109,10 +109,14 @@ xiao instanceof Xiao // true
  - Symbol.toPrimitive
  
 这个用的就多了，进行类型转换的时候，对象会进行尝试转换成原始类型，就是通过`toPrimitive`.这个方法，标准类型的原型上都存在。
+
 进行类型转换的时候，`toPrimitive`会被强制的调用一个参数，在规范中这个参数被称之为`hint`. 这个参数是三个值('number', 'string', 'default')其中的一个。
+
 顾名思义，`string`返回的是`string`, `number`返回的是`number`，`default`是没有特别指定，默认。
 
 那么什么是默认的情况呢？ 大多数的情况下，默认情况就是数字模式。(日期除外，他的默认情况视为字符串模式)
+
+其实在类型转换时调用默认情况的也不是很多。如(`==`, `+`)或者将参数传递给`Date`的构造参数的时候。
 
 - number mode
 在数字情况下的行为(优先级从高到低)
@@ -126,4 +130,36 @@ xiao instanceof Xiao // true
   - 如果前面不是原始值，那么就尝试调用`valueOf`，如果是原始值，那么就返回
   - 抛出错误
   
- 
+嗯，是不是感觉挺绕的，是啊，代码阐述下嘛。
+```javascript
+let obj = {
+    valueOf: function(){console.log('valueOf')},
+    toString: function(){console.log('toString')}
+}
+// console.log value is
+obj + 2 //valueOf
+obj == 2 // valueOf
+Number(obj) // valueOf
+String(obj) // toString
+```
+通过上面的输出，可以发现大多数的情况都是首先调用`valueOf`.
+包括默认的情况，他的默认是调用的数字模式，而且绝大数都是调用的数字模式，可以发现`toString`是调用了`string`的模式。所以你可以认为，基本就是数字模式，除非很显示的是字符串模式。
+
+对于这个调用的模式还不是很清楚？没事，es6把这个内部的方法对外暴露出来了，我们可以改写他，输出这个`hint`的类型。 来
+
+```javascript
+function Temperature(degrees) {
+    this.degrees = degrees;
+}
+
+Temperature.prototype[Symbol.toPrimitive] = function(hint) {
+	console.log('hint is', hint)
+};
+
+let freezing = new Temperature(32);
+
+freezing + 2 // ..
+freezing / 2 // ..
+...
+```
+上面的类型，自己尝试吧。
