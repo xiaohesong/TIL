@@ -42,3 +42,13 @@ Object.defineProperties(person, {
 
 这个是设置新的原型,在es6中出.
 
+- obj.hasOwnProperty
+这里是可以判断是否在实例上存在对应的属性。
+```javascript
+let P = function(){}
+P.prototype.name = 'xhs'
+let p = new P
+p.hasOwnProperty("name") // false
+P.hasOwnProperty('name') // false
+```
+只是在对应的目标对象上作用。
