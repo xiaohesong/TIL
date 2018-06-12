@@ -20,7 +20,7 @@
     
 - [后端ruby](#ruby)
 
-- [所读书籍](#所读书籍)
+- [推荐书籍](#推荐书籍)
 
 
 # 前端
@@ -91,5 +91,6 @@
 - [rails queries 模式](https://medium.com/@blazejkosmowski/essential-rubyonrails-patterns-part-2-query-objects-4b253f4f4539)
 
 
-# 所读书籍
+# 推荐书籍
 - [understanding es6](https://leanpub.com/understandinges6/)
+- [javascript高级程序设计3](http://www.wrox.com/WileyCDA/WroxTitle/Professional-JavaScript-for-Web-Developers-3rd-Edition.productCd-1118026691.html)
