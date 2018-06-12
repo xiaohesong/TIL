@@ -49,6 +49,6 @@ let P = function(){}
 P.prototype.name = 'xhs'
 let p = new P
 p.hasOwnProperty("name") // false
-P.hasOwnProperty('name') // false
+P.hasOwnProperty('name') // true
 ```
 只是在对应的目标对象上作用。
