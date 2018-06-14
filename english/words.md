@@ -7,6 +7,8 @@
 - so far (至今)
 - keep in mind (记住)
 - lead to (导致)
+- look-up process (查找过程)
+
 
 - primitive values (原始值)
 - type coercion (类型强制)
