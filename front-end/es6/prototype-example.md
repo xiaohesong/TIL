@@ -17,6 +17,8 @@ console.log(p2.types) // ['teacher', 'woman']
 
 为啥？不要想太多，因为push是直接在原型的属性上操作的，所以原型被改变了。如果是赋值，那么只会在对应的实例上进行操作。
 
+为什么赋值会在实例上形成自己的实例对象？[you don't known js - Setting & Shadowing Properties](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md#setting--shadowing-properties)
+
 - second 原型链继承
 
 ```javascript
@@ -32,7 +34,6 @@ function Second() {
   this.secondName = 'secondName'
 }
 
-// let first = new First
 Second.prototype = new First
 
 Second.prototype.getSecondName = function(){
@@ -50,8 +51,10 @@ second.constructor === First //true
 second.__proto__ === Second.prototype
 ```
 
-值得注意的是最后两行： 
-`Second.prototype = new First`这个仅仅改变了构造函数，现在构造函数是`First`,但是原型却没有改变，`second`的原型还是`Second`,只是原型是继承自`First`。
+ 
+`Second.prototype = new First`指向了一个新的对象，这个仅仅改变了构造函，现在构造函数是`First`,但是原型却没有改变，`second`的原型还是`Second`,只是原型是继承自`First`。
+
+再看看下面的这个：
 
 ```javascript
 Second.prototype = new First //1
