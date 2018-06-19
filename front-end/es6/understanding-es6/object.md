@@ -1,10 +1,10 @@
 阅读[object序列](https://leanpub.com/understandinges6/read#leanpub-auto-more-powerful-prototypes)
 
-- es5的`getPrototypeOf`
+##### es5的`getPrototypeOf`
 
 通过`getPrototypeOf`是可以获取到对象的原型。但是需要与其对应的去改变原型的方法。于是就出现了es6中的`setPrototype`.
 
-- es6中的`setPrototypeOf`
+##### es6中的`setPrototypeOf`
 
 相应的，通过`setPrototypeOf`去改变原型。
 他接受两个参数，第一个是待改变的对象，第二个参数是需要改变成的原型对象。
@@ -34,7 +34,7 @@ Object.getPrototypeOf(c).constructor === Person // true
 ```
 通过上面可以发现，`setPrototypeOf`把`c`对象的原型设置成了`p`的原型。
 
-- `getPrototypeOf`和`setPrototypOf`
+##### `getPrototypeOf`和`setPrototypOf`
 
 既然`getPrototypeOf`可以获取到原型对象，为啥还要引入`spuer`呢。我们先看一个例子。
 
@@ -103,7 +103,7 @@ console.log(relative.getGreeting());                // error!
 
 其实最主要的还是因为`getPrototypeOf`的原因，因为在提出`getPrototypeOf`的时候，认为`prototype`是不会去改变的，获取的对象永远是最近的一个原型对象。但是es6 出现了修改原型的方法，那么这个方法也就不适用了。在这种情况下，引入了super这个方法。
 
-- super
+##### super
 
 上面出错的堆栈溢出情况，可以适用`super`来改下下。
 ```javascript
@@ -132,7 +132,7 @@ console.log(relative.getGreeting());
 
 这里是可以正确输出，因为`super`不是动态引用的，他是引用的最终的那个而不是最近的一个。不论中间有多少对象继承。
 
-- call的误区
+##### call的误区
 ```javascript
 xiao = {
 	name: function(){return 'xiao'}
