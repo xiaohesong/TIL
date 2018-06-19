@@ -41,7 +41,7 @@ Object.defineProperties(person, {
 - Object.setPrototypeOf(original, newer)
 
 这个是设置新的原型,在es6中出.
-
+ 
 - obj.hasOwnProperty
 这里是可以判断是否在实例上存在对应的属性。
 ```javascript
@@ -51,4 +51,65 @@ let p = new P
 p.hasOwnProperty("name") // false
 P.hasOwnProperty('name') // true
 ```
-只是在对应的目标对象上作用。
+只是在对应的目标对象上发生作用。
+
+- constructor
+
+> 这个东西比较容易搞混淆。`constuctor`并不是说函数是一个`constructor`,而是说被`new`关键字调用的函数才是构造函数。
+
+[constructor介绍](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md#constructor-or-call)
+
+所以可以看出一些区别来。
+```javascript
+function Foo() {this.name = 'foo-name'}
+function Bar() {this.name = 'bar-name'}
+```
+针对于上面这点，我们来继承。
+```javascript
+Foo.prototype = Bar.prototype //1
+Foo.prototype = new Bar //2
+Foo.prototype = Object.create(Bar.prototype) //3
+```
+[//3在es6中的写法](https://github.com/xiaohesong/TIL/blob/master/front-end/es6/understanding-es6/object.md#es6%E4%B8%AD%E7%9A%84setprototypeof)
+  - //1的情况
+  他是直接继承自Bar的原型的对象，`Foo`有任何更改，都会作用于`Bar`的原型.
+
+  - //2的情况
+  他是作为一个构造函数去继承，这样会产生副作用,他会继承Bar的构造函数。
+  ```javascript
+  function Person() {
+    this.name = 'person name'
+    this.age = 18
+  }
+
+  function Child() {
+    this.name = 'child name'
+  }
+
+  Child.prototype = new Person
+  Child.prototype //Person {name: "person name", age: 18}
+  let c = new Child
+  c.age // 18
+  ```
+
+  - //3的情况
+  这个就只是单纯的继承，不会出现副作用。
+  ```javascript
+  function Person() {
+    this.name = 'person name'
+    this.age = 18
+  }
+
+  function Child() {
+    this.name = 'child name'
+  }
+
+  Child.prototype = Object.create( Person.prototype )
+  Child.prototype //Person {}
+  let c = new Child
+  c.age // undefined
+  ```
+
+这几种不能单纯的说好或者不好，毕竟每种都有他应用的场景。
+  
+具体可以参考[(Prototypal) Inheritance](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md#prototypal-inheritance)
