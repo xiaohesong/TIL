@@ -306,3 +306,217 @@ npm run dev
 ```
 这时候会发现`dist`下存在`js,css,html`文件.
 
+#### 缓存
+可以查看关于[hash缓存的文档](https://developers.google.com/web/fundamentals/performance/webpack/use-long-term-caching#split-the-code-into-routes-and-pages)来使浏览器只请求改变的文件.
+
+webpack4提供了[chunkhash](https://webpack.js.org/guides/caching/)来处理。
+
+来看看:
+```javascript
+// webpack v4
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');// 新加
+
+module.exports = {
+  entry: { main: './src/index.js' },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[chunkhash].js' //changed
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract(
+          {
+            fallback: 'style-loader',
+            use: ['css-loader']
+          })
+      }// 新加
+    ]
+  },
+  plugins: [
+    new ExtractTextPlugin(
+      {filename: 'style.[chunkhash].css', disable: false, allChunks: true}
+    ), //changed
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './src/index.html',
+      filename: 'index.html'
+    })
+
+  ]
+};
+
+```
+
+然后`src`下的`html`也要修改
+```html
+<html>
+  <head>
+    <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+  </head>
+  <body>
+    <div>Hello, world!</div>
+    <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+  </body>
+</html>
+```
+
+可以发现这里改变来，这个是使模版使用hash.
+
+好了，现在可以编译，会发现`dist`下的css和js名字是带有hash指的。
+
+#### 缓存带来的问题，如何解决
+
+如果我们改变代码，在编译的时候，发现并没有生成创新的hash名文件。
+
+```css
+div {
+  color: 'red';
+  background-color: 'blue';
+}
+```
+
+再次进行编译`npm run dev`，发现并没有生产新的hash文件名称，但是如果改变js代码，再次编译，会发现是改变了hash名称
+
+```javascript
+import "./index.css"
+console.log('Hello, world!');
+```
+
+如何解决？
+
+两种办法： 
+- 方法1
+把css提取器中的[chunkhash]换成[hash].但是这个会与webpack4.3中的[contenthash](https://github.com/webpack/webpack/releases/tag/v4.3.0)有冲突.可以结合[webpack-md5-hash](https://www.npmjs.com/package/webpack-md5-hash)一起使用。
+
+`npm install webpack-md5-hash --save-dev`
+
+```javascript
+// webpack v4
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash'); //新加
+module.exports = {
+  entry: { main: './src/index.js' },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[chunkhash].js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.css$/,
+        use: ExtractTextPlugin.extract(
+          {
+            fallback: 'style-loader',
+            use: ['css-loader']
+          })
+      }
+    ]
+  },
+  plugins: [
+    new ExtractTextPlugin(
+      {filename: 'style.[hash].css', disable: false, allChunks: true}
+    ),//changed
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './src/index.html',
+      filename: 'index.html'
+    }),
+    new WebpackMd5Hash() //新加
+
+  ]
+};
+
+```
+然后编译查看是否改变。
+现在的变化是，改变css文件，那么css文件的hash名字改变。如果改变js文件，那么css和js的压缩hash名称都将改变。
+
+- 方法2(推荐)
+
+方法1可能还会存在其他的冲突，所以来尝试下[mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin)
+
+这个插件是为了取代extract-plugin, 并带来兼容性的改变
+
+`npm install --save-dev mini-css-extract-plugin`
+
+尝试使用
+```javascript
+// webpack v4
+const path = require('path');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");//新加
+
+module.exports = {
+  entry: { main: './src/index.js' },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[chunkhash].js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      // {
+      //   test: /\.css$/,
+      //   use: ExtractTextPlugin.extract(
+      //     {
+      //       fallback: 'style-loader',
+      //       use: ['css-loader']
+      //     })
+      // }
+      {
+        test: /\.(scss|css)$/,
+        use:  [  'style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
+      } // 新加
+    ]
+  },
+  plugins: [
+    // new ExtractTextPlugin(
+    //   {filename: 'style.[hash].css', disable: false, allChunks: true}
+    // ),
+    new MiniCssExtractPlugin({
+      filename: 'style.[contenthash].css',
+    }),//新加
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './src/index.html',
+      filename: 'index.html'
+    }),
+    new WebpackMd5Hash()
+
+  ]
+};
+
+```
+好了，接下来我们尝试改变文件会怎么变化。
+改变css，进行编译发现只有css的文件改变来。改变js文件，发现编译之后只有js的hash名称改变，不错，就是这样。
+
