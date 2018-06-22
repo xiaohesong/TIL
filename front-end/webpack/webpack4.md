@@ -520,3 +520,129 @@ module.exports = {
 好了，接下来我们尝试改变文件会怎么变化。
 改变css，进行编译发现只有css的文件改变来。改变js文件，发现编译之后只有js的hash名称改变，不错，就是这样。
 
+#### 继承PostCss
+
+[postcss](https://github.com/postcss/postcss)大家应该不会陌生了。
+
+```shell
+npm install postcss-loader --save-dev
+npm i -D autoprefixer
+```
+[-D](https://github.com/xiaohesong/TIL/blob/master/front-end/npm/arguments.md).
+
+创建`postcss.config.js `
+```javascript
+module.exports = {
+    plugins: [
+      require('autoprefixer')
+    ]
+}
+```
+
+然后来配置你的`webpack.config.js`
+```javascript
+// webpack v4
+const path = require('path');
+// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+module.exports = {
+  entry: { main: './src/index.js' },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[chunkhash].js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.(scss|css)$/,
+        use:  [  'style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']//changed
+      }
+    ]
+  },
+  plugins: [
+    // new ExtractTextPlugin(
+    //   {filename: 'style.[hash].css', disable: false, allChunks: true}
+    // ),
+    new MiniCssExtractPlugin({
+      filename: 'style.[contenthash].css',
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './src/index.html',
+      filename: 'index.html'
+    }),
+    new WebpackMd5Hash()
+
+  ]
+};
+
+```
+
+#### 保持dist整洁
+
+这里使用`clean-webpack-plugin`插件.
+
+`npm i clean-webpack-plugin --save-dev`
+
+```javascript
+// webpack v4
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');//新加
+
+module.exports = {
+  entry: { main: './src/index.js' },
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[chunkhash].js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.(scss|css)$/,
+        use:  [  'style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader']//changed
+      }
+    ]
+  },
+  plugins: [
+    // new ExtractTextPlugin(
+    //   {filename: 'style.[hash].css', disable: false, allChunks: true}
+    // ),
+    new CleanWebpackPlugin('dist', {} ),//新加
+    new MiniCssExtractPlugin({
+      filename: 'style.[contenthash].css',
+    }),
+    new HtmlWebpackPlugin({
+      inject: false,
+      hash: true,
+      template: './src/index.html',
+      filename: 'index.html'
+    }),
+    new WebpackMd5Hash()
+
+  ]
+};
+
+```
+
+这样每次编译的时候，就会清空`dist`文件夹
