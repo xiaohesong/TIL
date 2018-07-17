@@ -75,6 +75,7 @@
 - [30天学习react](https://www.fullstackreact.com)
 #### blog
 - [Jake google developer](https://jakearchibald.com/)
+- [David Shariff blog](http://davidshariff.com/blog/)
 
 #### 性能相关
   ##### 懒加载
