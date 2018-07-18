@@ -12,3 +12,5 @@
 
 - primitive values (原始值)
 - type coercion (类型强制)
+
+- term (术语)
