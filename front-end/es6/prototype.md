@@ -72,7 +72,14 @@ Foo.prototype = Object.create(Bar.prototype) //3
 ```
 [//3在es6中的写法](https://github.com/xiaohesong/TIL/blob/master/front-end/es6/understanding-es6/object.md#es6%E4%B8%AD%E7%9A%84setprototypeof)
   - //1的情况
-  他是直接继承自Bar的原型的对象，`Foo`有任何更改，都会作用于`Bar`的原型.
+  他是直接继承自Bar的原型的对象，`Foo`原型上有任何更改，都会作用于`Bar`的原型.
+  ```javascript
+  const f = new Foo
+	b = new Bar
+  Foo.prototype.friends = ['john', 'issac']
+  console.log(Bar.prototype.friends) //['john', 'issac']
+  console.log(b.friends) // ['john', 'issac']
+  ```
 
   - //2的情况
   他是作为一个构造函数去继承，这样会产生副作用,他会继承Bar的构造函数。
