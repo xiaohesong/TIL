@@ -12,6 +12,7 @@
   - [前端学习链接](#前端学习链接)
     - [css/html](#csshtml)  
     - [js](#js)
+    - [ts](#ts)
     - [flex](#flex)
     - [react](#react)
     - [blog](#blog) 
@@ -67,6 +68,8 @@
 - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
 - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
 - [Learn Plain JavaScript from Top Articles for the Past Year (v.2018)](https://medium.mybridge.co/learn-plain-javascript-from-top-tutorials-for-the-past-year-v-2018-d964bc597a45)
+#### ts
+- [free typescript course](https://scrimba.com/g/gintrototypescript)
 #### flex
 - [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#article-header-id-2)
 - [DIVE INTO FLEXBOX](https://bocoup.com/blog/dive-into-flexbox)
