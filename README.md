@@ -75,7 +75,7 @@
 - [DIVE INTO FLEXBOX](https://bocoup.com/blog/dive-into-flexbox)
 #### react
 - [个人学习react记录](https://github.com/xiaohesong/ums/wiki)
-- [30天学习react](https://www.fullstackreact.com)
+- [30天学习react](https://www.fullstackreact.com/30-days-of-react/)
 #### blog
 - [Jake google developer](https://jakearchibald.com/)
 - [David Shariff blog](http://davidshariff.com/blog/)
