@@ -1,5 +1,5 @@
-# TIL(Today I Learn)
-> ## 记录每天自己学习到的东西.
+# TIL(Today I Learn) 记录每天自己学习到的东西.
+
 > ## [react学习记录](https://github.com/xiaohesong/ums/wiki)
 
 ## 目录
@@ -18,6 +18,8 @@
     - [blog](#blog) 
   - [性能相关](#性能相关)
     - [懒加载](#懒加载)
+    - [网站性能](#网站性能)
+  - [浏览器相关](#浏览器)
     
 - [后端ruby](#ruby)
 
@@ -83,9 +85,14 @@
 #### 性能相关
   ##### 懒加载
    - [Lazy Loading Images and Video](https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/)
+  ##### 网站性能
    - [Google PageSpeed Insights](https://developers.google.com/speed/docs/insights/rules?csw=1)
    - [YaHoo Best Practices for Speeding Up Your Web Site](https://developer.yahoo.com/performance/rules.html?guccounter=1)
    - [Steve Souders - 14 Rules for Faster-Loading Web Sites](http://stevesouders.com/hpws/rules.php)
+   
+#### 浏览器
+   - [浏览器原理](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
+   
 
 #### 前端新手学习库
 - [The Ultimate Guide to Learning Full Stack Web Development in 6 months, for $30](https://codeburst.io/the-ultimate-guide-to-learning-full-stack-web-development-in-6-months-for-30-72b3854a7458)
