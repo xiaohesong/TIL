@@ -70,6 +70,7 @@
 - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
 - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
 - [Learn Plain JavaScript from Top Articles for the Past Year (v.2018)](https://medium.mybridge.co/learn-plain-javascript-from-top-tutorials-for-the-past-year-v-2018-d964bc597a45)
+- [The Modern JavaScript Tutorial](https://javascript.info/)
 #### ts
 - [free typescript course](https://scrimba.com/g/gintrototypescript)
 #### flex
