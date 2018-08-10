@@ -10,6 +10,7 @@
   - [工具](#前端工具)
 
   - [前端学习链接](#前端学习链接)
+    - [dom](#dom)
     - [css/html](#csshtml)  
     - [js](#js)
     - [ts](#ts)
@@ -58,6 +59,8 @@
 - [监控网站](https://www.fundebug.com/)
   
 ### 前端学习链接
+#### dom
+- [规范 spec dom](https://dom.spec.whatwg.org/)
 #### css&html
 - [Learn to Code HTML & CSS](https://learn.shayhowe.com/html-css/)
 - [css-Learn CSS Layout](http://book.mixu.net/css/)
