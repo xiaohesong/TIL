@@ -114,6 +114,124 @@ Object.getOwnPropertyDescriptors(o)
 
 这个是控制属性是否显示，例如`for .. in`循环中，`false`便不会显示。
 
+- in & hasOwnProperty
+
+`in`是检索整个原型链的`key`(`property`),`hasOwnProperty`仅仅检索当前对象的`key`(`property`),不会蔓延到原型链上层去查找。
+
+```js
+4 in [2,4,6] // false, 因为检索的是key,不是value
+```
+
+下面再来看看`enumerable`
+
+```js
+var myObject = { };
+
+Object.defineProperty(
+	myObject,
+	"a",
+	// make `a` enumerable, as normal
+	{ enumerable: true, value: 2 }
+);
+
+Object.defineProperty(
+	myObject,
+	"b",
+	// make `b` NON-enumerable
+	{ enumerable: false, value: 3 }
+);
+
+myObject.b; // 3
+("b" in myObject); // true
+myObject.hasOwnProperty( "b" ); // true
+
+// .......
+
+for (var k in myObject) {
+	console.log( k, myObject[k] );
+}
+// "a" 2
+```
+
+可以发现这个`myObject.b`是存在的，可访问的，但是因为`enumerable: false`导致`for .. in`不显示出`b`属性。
+**这是因为`enumerable`表示只包含可以被枚举的属性。**
+
+可不可以枚举，可以判断出来，如下:
+
+```js
+var myObject = { };
+
+Object.defineProperty(
+	myObject,
+	"a",
+	// make `a` enumerable, as normal
+	{ enumerable: true, value: 2 }
+);
+
+Object.defineProperty(
+	myObject,
+	"b",
+	// make `b` non-enumerable
+	{ enumerable: false, value: 3 }
+);
+
+myObject.propertyIsEnumerable( "a" ); // true
+myObject.propertyIsEnumerable( "b" ); // false
+
+Object.keys( myObject ); // ["a"]
+Object.getOwnPropertyNames( myObject ); // ["a", "b"]
+```
+
+很明显的看到， `propertyIsEnumerable`可以针对某个属性进行判断，`Object.keys`获取的是可枚举的属性列表, `getOwnPropertyNames`获取的是所有的属性名称。
+
+所以可以知道两点:
+  - `in` vs `hasOwnProperty`
+  
+    `hasOwnProperty`查找的是当前对象的属性，不会提升到`prototype chain`查找。`in`则会查找整个原型链.
+  
+  - `Object.keys` vs `getOwnPropertyNames`
+  
+    这两个都只是作用在当前的对象上，不会遍历原型链。<br>
+    `Object.keys`返回的是可枚举的属性名称列表，`Object.getOwnPropertyNames`返回的是所有的属性名称，无论是否可以枚举。
+
+
+##### [getter & setter](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch3.md#getters--setters)
+
+- [GET]
+
+对象调用属性时，某人优先调用`get`方法。
+
+```js
+let obj = {
+  a: 'normal-a',
+  get a() {
+    return 'get-a'
+  }
+}
+obj.a // 'get-a'
+obj.a = 'reset-a'
+obj.a // 'get-a'
+```
+上面的代码很明了，优先调用定义的`get`方法。
+  
+```js
+let obj = {
+  a: 'normal-a',
+  get a() {
+    return this._a_
+  },
+  set a(val) {
+    this._a_ = val;
+  }
+}
+
+obj.a // undefined
+obj.a = 'reset-a'
+obj.a // reset-a
+```
+
+注意到了`_a_`了吧，不用多想，没啥特别的意思，就是按照约定，加下划线，你也可以用其他的来表示，但是不能用`a`,否则会循环到堆栈溢出。
+
 
 #### 其他实用方法
 
