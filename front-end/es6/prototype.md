@@ -1,4 +1,4 @@
-#### definePrototype
+#### defineProperty
 
 - defineProperty
 
@@ -10,6 +10,8 @@ Object.definePrototype(p, 'name', {
 })
 ```
 这个是定义一个name属性。
+
+> 注意：`defineProperty`定义的属性，属性特性(writable, configurable, enumerable)是false, 而字面量创建的对象，默认是false. [Property Descriptors](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch3.md#property-descriptors)
 
 - defineProperties
 
