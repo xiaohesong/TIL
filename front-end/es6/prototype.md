@@ -66,7 +66,7 @@ P.hasOwnProperty('name') // true
 function Foo() {this.name = 'foo-name'}
 function Bar() {this.name = 'bar-name'}
 ```
-针对于上面这点，我们来继承。
+针对于上面这点，[我们来继承](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md#prototypal-inheritance)。
 ```javascript
 Foo.prototype = Bar.prototype //1
 Foo.prototype = new Bar //2
