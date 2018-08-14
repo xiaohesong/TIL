@@ -112,7 +112,7 @@ Object.getOwnPropertyDescriptors(o)
 
 ##### `enumerable`
 
-这个是控制属性是否显示，例如`for .. in`循环中，`false`便不会显示。
+这个是控制属性是否显示，例如`for .. in`循环中，`false`便不会显示。⚠️ **`for(let i in obj)`是根据enumerable来显示，in操作不管enumerable,只是单纯的查找**
 
 - in & hasOwnProperty
 
