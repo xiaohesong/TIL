@@ -22,3 +22,5 @@ JS默认也是会阻塞DOM和渲染树的构建的。
 HTML解析器在遇到脚本文件时，默认会停下来去获取脚本（不考虑资源预加载优化），然后执行，期间阻塞DOM构建。
 
 所以加载顺序是自上而下,但是渲染流程却是如图.所以最好将js放在最下面.
+
+[js 通过async和defer加载](https://github.com/xiaohesong/TIL/blob/master/front-end/javascript/events/%E9%A1%B5%E9%9D%A2%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md#domcontentloaded-and-scripts)
