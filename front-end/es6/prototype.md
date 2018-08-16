@@ -118,6 +118,8 @@ Foo.prototype = Object.create(Bar.prototype) //3
   let c = new Child
   c.age // undefined
   ```
+  
+  //3 和 //2的区别就是 //2可以获得原型及实例的方法，但是//3只会获得原型链上的方法，不会获得实例上的方法。
 
 这几种不能单纯的说好或者不好，毕竟每种都有他应用的场景。
   
