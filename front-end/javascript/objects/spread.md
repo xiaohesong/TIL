@@ -44,7 +44,7 @@ man2.hasOwnProperty('gf') // true
 const man3 = {...man2}
 man3 // {gf: "lucia"}
 ```
-由上面可以发现，扩展运算符只会显示出自由的属性，不会展示继承的属性。
+由上面可以发现，扩展运算符只会显示出自有的属性，不会展示继承的属性。
 
 `example3`
 ```js
