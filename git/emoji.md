@@ -32,3 +32,5 @@ emoji                                   | emoji 代码                   | commi
 :wrench: (扳手)                         | `:wrench:`                   | 修改配置文件
 :globe_with_meridians: (地球)           | `:globe_with_meridians:`     | 国际化与本地化
 :pencil2: (铅笔)                        | `:pencil2:`                  | 修复 typo
+
+[表情对应code 大全](https://www.webfx.com/tools/emoji-cheat-sheet/)
