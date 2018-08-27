@@ -66,4 +66,30 @@ for (let num of range) {
 }
 ```
 
+再来看一个例子
+
+```js
+let o = {
+  0: '0000',
+  3: '3333',
+  length: 6
+}
+for(let value of o){} // TypeError o is not iterable
+
+let obj = Array.from(o) // (6) ["0000", undefined, undefined, "3333", undefined, undefined]
+for(let value of obj){} // undefined, works!
+
+
+let ranger = Array.from(range) // 上面的range的例子.  (5) [1, 2, 3, 4, 5]
+// 有意思吧，他自己会把iterable的计算出来。
+```
+
+- Array.from
+
+```js
+a = [1,3,5,7,9]
+Array.from(a, (num) => num * num) //(5) [1, 9, 25, 49, 81]
+// 第二个参数是一个函数，可对每个item操作。
+```
+
 
