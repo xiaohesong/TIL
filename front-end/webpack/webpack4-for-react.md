@@ -27,3 +27,8 @@
   目前是加上了preload这个功能，这样第三方没有抽出来的代码会预加载。
   
   
+- [ignore plugin](https://webpack.js.org/plugins/ignore-plugin/)
+
+  moment这个包有个问题，那就是语言和核心部分捆绑在一起了，用这个可以忽略对应的部分。
+  
+  
