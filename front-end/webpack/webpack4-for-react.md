@@ -22,7 +22,7 @@
   
 - SplitChunks
 
-  这个默认是`异步加载的代码`，如果改成`init`或者`all`，会增大js文件，这个可能需要在项目差不多的时候，权衡之后再做使用。[可以参考这里的对比](https://github.com/xiaohesong/react-by-webpack4/issues/1)
+  这个默认是拆分`异步加载的代码`，如果改成`init`或者`all`，会增大js文件，这个可能需要在项目差不多的时候，权衡之后再做使用。[可以参考这里的对比](https://github.com/xiaohesong/react-by-webpack4/issues/1)
   
   目前是加上了preload这个功能，这样第三方没有抽出来的代码会预加载。
   
