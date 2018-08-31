@@ -89,16 +89,20 @@ Foo.prototype = Object.create(Bar.prototype) //3
   function Person() {
     this.name = 'person name'
     this.age = 18
+    this.friends = []
   }
 
   function Child() {
     this.name = 'child name'
   }
 
-  Child.prototype = new Person
-  Child.prototype //Person {name: "person name", age: 18}
+  Child.prototype = new Person // new Person is: {name: "person name", age: 18, friends: Array(0)}
+  Child.prototype //Person {name: "person name", age: 18, friends: Array(0)}
   let c = new Child
   c.age // 18
+  c.friends.push('c')
+  let c2 = new Child
+  c2.friends // ['c'],这样就会出现副作用(因为把Person的构造函数对象放在了Child的原型上，导致在原型上直接操作)
   ```
 
   - //3的情况
@@ -112,11 +116,16 @@ Foo.prototype = Object.create(Bar.prototype) //3
   function Child() {
     this.name = 'child name'
   }
+  
+  Person.prototype.friends = []
 
-  Child.prototype = Object.create( Person.prototype )
-  Child.prototype //Person {}
+  Child.prototype = Object.create( Person.prototype ) // Object.create(Person.prototype)不会创建实例方法，只会继承prototype方法，但是如果直接操作也会有问题
+
+  Child.prototype //Person {}
   let c = new Child
-  c.age // undefined
+  c.age // undefined, 这里说明不会继承构造函数对象(因为压根就没有使用构造函数~.~)
+  c.friends.push('c')
+  (new Child).friends // ['c'], 可以发现，这也也是有问题的。这点不难理解吧，因为Object.create( Person.prototype )把Person的原型方法给了Child的prototye,导致直接操作原型的本身了。
   ```
   
   //3 和 //2的区别就是 //2可以获得原型及实例的方法，但是//3只会获得原型链上的方法，不会获得实例上的方法。
