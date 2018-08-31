@@ -1,5 +1,7 @@
 前几天用webpack4配置了下react,这里主要说下碰到的一些问题。[源代码](https://github.com/xiaohesong/react-by-webpack4)
 
+### 一些小问题
+
 - hash缓存
 
   js和css都使用了**chunkhash**缓存，但是出现一个问题就是，无论修改css文件或者js文件，都会导致chunkhash改变，这显然不是我们需要的。
@@ -27,8 +29,14 @@
   目前是加上了preload这个功能，这样第三方没有抽出来的代码会预加载。
   
   
+### tips
+
 - [ignore plugin](https://webpack.js.org/plugins/ignore-plugin/)
 
   moment这个包有个问题，那就是语言和核心部分捆绑在一起了，用这个可以忽略对应的部分。
+
+- [preload](https://github.com/GoogleChromeLabs/preload-webpack-plugin)
+
+  可以对资源进行预加载，这个视情况而定，也许你其他的模块打包出来体积很小，可以不用做这个。我是因为没有对第三方的包进行提取，为了首次加载的速度，所以对后面的进行预加载.
   
   
