@@ -25,6 +25,8 @@ HTML解析器在遇到脚本文件时，默认会停下来去获取脚本（不�
 
 [js 通过async和defer加载](https://github.com/xiaohesong/TIL/blob/master/front-end/javascript/events/%E9%A1%B5%E9%9D%A2%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md#domcontentloaded-and-scripts)
 
+#### 进程线程
+
 *为什么js加载执行会阻塞渲染树构建*
 
 这就得从浏览器来说起来，现在的浏览器都是多进程的浏览器，以谷歌来说，他就是多进程的，每当你打开一个新的tab页的时候，他就会去开一个进程来处理这个tab页面。在这个tab里，是单进程，但是却是多线程的，主要是有那么一些线程，可以看下。
