@@ -43,6 +43,7 @@
 #### dom
 - [规范 spec dom](https://dom.spec.whatwg.org/)
 #### css&html
+- [规范 spec html](https://html.spec.whatwg.org/)
 - [Learn to Code HTML & CSS](https://learn.shayhowe.com/html-css/)
 - [css-Learn CSS Layout](http://book.mixu.net/css/)
 - [Concise courses for badass web developers](https://egghead.io/)
