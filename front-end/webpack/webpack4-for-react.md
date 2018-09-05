@@ -29,6 +29,11 @@
   目前是加上了preload这个功能，这样第三方没有抽出来的代码会预加载。
   
   
+- typescript code splitting
+
+  这边折腾了不少事件，按照文档加上在`tsconfig.json`加上了`"module": "esnext"`,发现还是报错，不能正常解析，最后添加了`es2015`在`lib`里。
+  
+  
 ### tips
 
 - [ignore plugin](https://webpack.js.org/plugins/ignore-plugin/)
