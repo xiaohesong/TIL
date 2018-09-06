@@ -66,3 +66,17 @@ console.log(set.size);      // 0
 ```
 
 `delete`是移除对应的某一个, `clear`是清空.
+
+再来看看`weakset`。
+
+`WeakSet`与`Set`的区别.
+
+- new WeakSet && new Set
+  1. new WeakSet 支持空的[]作为参数，其他都不行
+  2. new Set 支持interator作为参数，其他都不行.
+
+- add
+  1. weakset 只支持add({} || [])
+  2. set 支持add all.
+
+他们还有对引用类型上销毁的不同。
