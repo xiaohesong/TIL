@@ -14,3 +14,5 @@
 - type coercion (类型强制)
 
 - term (术语)
+- discuss (讨论)
+- workarounds(解决方法)
