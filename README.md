@@ -94,10 +94,9 @@
    - [Google PageSpeed Insights](https://developers.google.com/speed/docs/insights/rules?csw=1)
    - [YaHoo Best Practices for Speeding Up Your Web Site](https://developer.yahoo.com/performance/rules.html?guccounter=1)
    - [Steve Souders - 14 Rules for Faster-Loading Web Sites](http://stevesouders.com/hpws/rules.php)
-</details>
-   
-#### 浏览器
+  #### 浏览器
    - [浏览器原理](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
+</details>
    
 
 #### 前端新手学习库
