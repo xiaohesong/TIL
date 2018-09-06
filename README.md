@@ -32,22 +32,22 @@
 
 ---
 
-# 前端
+## 前端
 
-### 学习之道
+#### 学习之道
 - [如何成为伟大的前端人员](https://note.youdao.com/share/?id=6138f1140940b485a9229a6291c7b20f&type=note#/)
 
-### 面试题库
+#### 面试题库
 - [30-seconds-of-interviews](https://github.com/fejes713/30-seconds-of-interviews)
   
-### 前端工具
+#### 前端工具
 - [github排名趋势](https://risingstars.js.org/2017/zh/)
 - [监控网站](https://www.fundebug.com/)
   
-### 前端学习链接
-#### dom
+#### 前端学习链接
+> dom
 - [规范 spec dom](https://dom.spec.whatwg.org/)
-#### css&html
+> css&html
 <details>
  <summary>显示内容</summary>
   
@@ -58,7 +58,7 @@
  - [30-seconds-of-css](https://github.com/atomiks/30-seconds-of-css)
 </details>
 
-#### js
+> js
 <details>
   <summary>显示内容</summary>
   
@@ -72,19 +72,19 @@
   
 </details>
 
-#### ts
+> ts
 - [free typescript course](https://scrimba.com/g/gintrototypescript)
-#### flex
+> flex
 - [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#article-header-id-2)
 - [DIVE INTO FLEXBOX](https://bocoup.com/blog/dive-into-flexbox)
-#### react
+> react
 - [个人学习react记录](https://github.com/xiaohesong/ums/wiki)
 - [30天学习react](https://www.fullstackreact.com/30-days-of-react/)
-#### blog
+> blog
 - [Jake google developer](https://jakearchibald.com/)
 - [David Shariff blog](http://davidshariff.com/blog/)
 
-#### 性能相关
+> 性能相关
 <details>
   <summary>显示内容</summary>  
   
@@ -99,20 +99,20 @@
 </details>
    
 
-#### 前端新手学习库
+> 前端新手学习库
 - [The Ultimate Guide to Learning Full Stack Web Development in 6 months, for $30](https://codeburst.io/the-ultimate-guide-to-learning-full-stack-web-development-in-6-months-for-30-72b3854a7458)
 
 ---
 
-# 后端
-### ruby
+## 后端
+#### ruby
 
 - [rails service 模式](https://medium.com/selleo/essential-rubyonrails-patterns-part-1-service-objects-1af9f9573ca1)
 
 - [rails queries 模式](https://medium.com/@blazejkosmowski/essential-rubyonrails-patterns-part-2-query-objects-4b253f4f4539)
 
 
-# 推荐书籍
+## 推荐书籍
 - [understanding es6](https://leanpub.com/understandinges6/)
 - [javascript高级程序设计3](http://www.wrox.com/WileyCDA/WroxTitle/Professional-JavaScript-for-Web-Developers-3rd-Edition.productCd-1118026691.html)
 - [exploring es6](http://exploringjs.com/es6/index.html)
