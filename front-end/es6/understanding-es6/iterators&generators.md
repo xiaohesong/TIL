@@ -196,3 +196,21 @@ w.next() //4 {done: false, value: 'xzLM'}
 这个步骤就是每次的`next()`都是先执行上一个表达式的左侧，再执行当前表达式的右侧(`yield`).如果不是表达式，则直接执行`yield`. 这就造成传入的参数实际是在执行当前`yield`之前对上一个表达式左侧的变量进行了赋值(并且如果有接收参数，切`next()`没有传入参数，那就造成这个变量是`undefined`)。看下图
 
 ![](https://github.com/xiaohesong/TIL/blob/master/assets/front-end/imgs/generatorFunction.png)
+
+###### iterator支持抛出异常
+```js
+function *createIterator() {
+    let first = yield 1;
+    let second = yield first + 2;       // yield 4 + 2, then throw
+    yield second + 3;                   // never is executed
+}
+
+let iterator = createIterator();
+
+console.log(iterator.next());                   // "{ value: 1, done: false }"
+console.log(iterator.next(4));                  // "{ value: 6, done: false }"
+console.log(iterator.throw(new Error("Boom"))); // error thrown from generator
+```
+这里就抛出一个异常，看下图就比较直观
+
+![](https://github.com/xiaohesong/TIL/blob/master/assets/front-end/imgs/generatorThrow.png)
