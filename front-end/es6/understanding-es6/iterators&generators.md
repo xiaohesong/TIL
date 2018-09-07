@@ -229,5 +229,7 @@ w.next() // {done: true, value: 'xz'}
 w.next()// {done: false, value: undeined}
 ```
 
-可以发现，在`generator`中正常return，带有返回值. **` spread operator`和`for-of`会无视`return`的返回值，注意: **不会无视`return`语句**
+可以发现，在`generator`中正常return，带有返回值. 
+**`spread operator`和`for-of`会无视`return`的返回值，注意:不会无视`return`语句**
+
 为什么不会返回`return`值，因为发现`done: true`之后，便不会再去读取`value`。 然而可迭代的返回值很重要，所以，出现了`delegating generators`.
