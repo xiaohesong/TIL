@@ -232,4 +232,41 @@ w.next()// {done: false, value: undeined}
 可以发现，在`generator`中正常return，带有返回值. 
 **`spread operator`和`for-of`会无视`return`的返回值，注意:不会无视`return`语句**
 
-为什么不会返回`return`值，因为发现`done: true`之后，便不会再去读取`value`。 然而可迭代的返回值很重要，所以，出现了`delegating generators`.
+为什么不会返回`return`值，因为发现`done: true`之后，便不会再去读取`value`。
+
+###### Delegating Generators
+看下面例子，比较直观
+```js
+function *createNumberIterator() {
+    yield 1;
+    yield 2;
+    return 3;
+}
+
+function *createRepeatingIterator(count) {
+    for (let i=0; i < count; i++) {
+        yield "repeat";
+    }
+}
+
+function *createCombinedIterator() {
+    let result = yield *createNumberIterator();
+    yield *createRepeatingIterator(result);
+}
+
+var iterator = createCombinedIterator();
+
+console.log(iterator.next());           // "{ value: 1, done: false }"
+console.log(iterator.next());           // "{ value: 2, done: false }"
+console.log(iterator.next());           // "{ value: "repeat", done: false }"
+console.log(iterator.next());           // "{ value: "repeat", done: false }"
+console.log(iterator.next());           // "{ value: "repeat", done: false }"
+console.log(iterator.next());           // "{ value: undefined, done: true }"
+```
+这个就是一个代理的例子。值得注意的是`result`，他是一个`return`值，`next()`方法的时候不会有输出，如果需要输出需要`yield result`.
+
+> `yield * 'string'`是保持默认`string`的输出.
+
+###### [asynchronous task running](https://leanpub.com/understandinges6/read#leanpub-auto-asynchronous-task-running)
+
+这个就是利用`next()`是一步一步的原理去处理。
