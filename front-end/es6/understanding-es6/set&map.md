@@ -78,5 +78,8 @@ console.log(set.size);      // 0
 - add
   1. weakset 只支持add({} || [])
   2. set 支持add all.
+  
+- weakset不存在forEach方法
+- weakset不存在size方法(无效)
 
 他们还有对引用类型上销毁的不同。
