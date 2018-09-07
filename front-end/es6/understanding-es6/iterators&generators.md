@@ -1,7 +1,9 @@
 ### [Iterator and Generator](https://leanpub.com/understandinges6/read#leanpub-auto-iterators-and-generators)
 
-- iterator 
+- iterator
+
   这个就是一个可以迭代的接口对象。[可以参考这里](https://github.com/xiaohesong/til/blob/master/front-end/javascript/objects/iterator.md)
+  
   简单的来说这个对象就是有一个next方法，next方法里返回的对象具有(value和done)这两个属性.
   
   ```js
@@ -152,7 +154,7 @@ for (let entry of data) {
 
 可以发现，`array`和`set`默认的是value，而`map`则默认的是`entries`.
 
-generator也是可以传参数的。
+###### generator也是可以传参数的。
 
 ```js
 function *createIterator() {
