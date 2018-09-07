@@ -59,7 +59,7 @@
   
   `yield`关键字会在next方法调用的时候返回结果，并且后面的不会有操作，next一次向下走一次。
   
-  arrow function 不支持generator.
+  arrow function 不支持generator,并且[generator的next也是可以传递参数的](https://github.com/xiaohesong/TIL/blob/master/front-end/es6/understanding-es6/iterators&generators.md#generator%E4%B9%9F%E6%98%AF%E5%8F%AF%E4%BB%A5%E4%BC%A0%E5%8F%82%E6%95%B0%E7%9A%84).
   
   
 ### [iterables and for of](https://leanpub.com/understandinges6/read#leanpub-auto-iterables-and-for-of)
