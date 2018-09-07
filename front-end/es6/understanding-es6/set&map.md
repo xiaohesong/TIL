@@ -1,5 +1,6 @@
-### [Map&Set](https://leanpub.com/understandinges6/read#leanpub-auto-sets-and-maps-in-ecmascript-5)
+## [Map&Set](https://leanpub.com/understandinges6/read#leanpub-auto-sets-and-maps-in-ecmascript-5)
 
+### Set
 在了解set之前，先看下object。
 
 ```js
@@ -83,3 +84,27 @@ console.log(set.size);      // 0
 - weakset不存在size方法(无效)
 
 他们还有对引用类型上销毁的不同。
+
+
+### Map
+map是一个健值对的有序列表，他的key类似于set，看下面的例子:
+
+```js
+map = new Map, obj1 = {}, obj2 = {}
+map.set(obj1, 'is obj1')
+map.get(obj1) // undefined
+```
+首先可以知道，map是通过set设置一个健值对，通过get获取value，并且如果获取不存在的健值对，返回的是一个undefined.而且也可以通过上面的两个对象key得知key是唯一的，不会转换成其他的类型。
+
+map除了上面的一些方法，还有一些方法类似于set。
+- `has(key)` 确定是否存在这个key
+- `delete(key)` 删除某一个健值对
+- `clear()` 删除所有的健值对
+- `size` 有多少对健值对
+
+初始化的时候也支持传入参数，但是这个参数必须是数组，数组里的每项也是一个数组
+
+```js
+map = new Map([['age', 18], ['name', 'xhs'], ['company', 'skio']])
+map.size // 3
+```
