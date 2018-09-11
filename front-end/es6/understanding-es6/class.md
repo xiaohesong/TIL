@@ -587,4 +587,63 @@ console.log(subitems instanceof MyArray);   // false
 
 **通常情况下，要想在类方法中使用`this.constructor`方法，就应该使用`Symbol.species`属性.**
 
+### 类的构造函数中使用`new.target`
+你可以在类的构造函数中使用`new.target`去确定`class`是如何被调用的。一些简单的情况之下，`new.target`等于方法或者类的构造函数.
+```js
+class Rectangle {
+    constructor(length, width) {
+        console.log(new.target === Rectangle);
+        this.length = length;
+        this.width = width;
+    }
+}
 
+// new.target is Rectangle
+var obj = new Rectangle(3, 4);      // outputs true
+```
+因为`class`调用必须使用`new`,所以这种情况下就等于`Rectangle(constructor name)`. 但是值却不总是一样，如下：
+```js
+class Rectangle {
+    constructor(length, width) {
+        console.log(new.target === Rectangle);
+        this.length = length;
+        this.width = width;
+    }
+}
+
+class Square extends Rectangle {
+    constructor(length) {
+        super(length, length)
+    }
+}
+
+// new.target is Square
+var obj = new Square(3);      // outputs false
+```
+可以发现，这里就不是`Rectangle`了，而是`Square`.这个很重要，他可以根据调用方式来判断当前的`target`.
+基于上面这点，我们就可以定义一个不可以被实例化的基类。例如:
+```js
+// abstract base class
+class Shape {
+    constructor() {
+        if (new.target === Shape) {
+            throw new Error("This class cannot be instantiated directly.")
+        }
+    }
+}
+
+class Rectangle extends Shape {
+    constructor(length, width) {
+        super();
+        this.length = length;
+        this.width = width;
+    }
+}
+
+var x = new Shape();                // throws error
+
+var y = new Rectangle(3, 4);        // no error
+console.log(y instanceof Shape);    // true
+```
+
+> 注意： 因为`class`必须使用`new`调用，因此`new.target`在构造函数中永远不可能是`undefined`
