@@ -59,6 +59,7 @@
  - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
  - [Learn Plain JavaScript from Top Articles for the Past Year (v.2018)](https://medium.mybridge.co/learn-plain-javascript-from-top-tutorials-for-the-past-year-v-2018-d964bc597a45)
  - [The Modern JavaScript Tutorial](https://javascript.info/)
+ - [4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them](https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/)
 
 ##### ts
  - [free typescript course](https://scrimba.com/g/gintrototypescript)
