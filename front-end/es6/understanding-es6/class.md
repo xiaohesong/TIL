@@ -384,4 +384,207 @@ console.log(square instanceof Rectangle);   // true
 具体的关于[shadowing property](https://github.com/xiaohesong/til/blob/master/front-end/javascript/prototype/prototype-shadow.md)
 
 ### 继承静态成员
+这个就类似派生继承里的方法，也可以被继承。
+
+### 表达式派生的类
+只要一个表达式内部存在`[[Constructor]]`并且有`prototype`,那就可以被`extends`.
+看下面这个例子：
+```js
+let SerializableMixin = {
+    serialize() {
+        return JSON.stringify(this);
+    }
+};
+
+let AreaMixin = {
+    getArea() {
+        return this.length * this.width;
+    }
+};
+
+function mixin(...mixins) {
+    var base = function() {};
+    Object.assign(base.prototype, ...mixins);
+    return base;
+}
+
+class Square extends mixin(AreaMixin, SerializableMixin) {
+    constructor(length) {
+        super();
+        this.length = length;
+        this.width = length;
+    }
+}
+
+var x = new Square(3);
+console.log(x.getArea());               // 9
+console.log(x.serialize());             // "{"length":3,"width":3}"
+```
+他仍然可以工作，因为`mixin`方法返回的是一个`function`.满足`[[Constructor]]`和`prototype`的要求。可以发现这里例子中，虽然基类是空的，但是仍然使用了`super()`，否则报错. 如果`mixin`中有多个相同的`prototype`,则以最后一个为准。
+
+>`extends`后面可以使用任何的表达式，但是并不是所有的表达式都会生成有效的类。有这些情况是不可以的。
+> - null
+> - generator function
+在这些情况下，尝试使用`new`去实例化一个对象，会报错，因为这些内部不存在`[[Constructor]]`
+
+### 继承内部的属性
+自从数组存在，开发者几乎都想通过继承定制自己的数组类型，在`es5`及更早之前的版本，这几乎是不可能的。使用经典继承并不会使代码正常运行。
+例如：
+```js
+// 内置的数组行为
+var colors = [];
+colors[0] = "red";
+console.log(colors.length);         // 1
+
+colors.length = 0;
+console.log(colors[0]);             // undefined
+
+// es5中尝试数组继承
+
+function MyArray() {
+    Array.apply(this, arguments);
+}
+
+MyArray.prototype = Object.create(Array.prototype, {
+    constructor: {
+        value: MyArray,
+        writable: true,
+        configurable: true,
+        enumerable: true
+    }
+});
+
+var colors = new MyArray();
+colors[0] = "red";
+console.log(colors.length);         // 0
+
+colors.length = 0;
+console.log(colors[0]);             // "red"
+```
+可以发现，这个是不能继承内部的属性。`es6`的一个目标就是继承内部的属性方法。因此`es6 class`的继承和`es5`的经典继承略有不同：
+**`ES5`的经典继承首先调用的是派生类中的`this`,然后基类的构造函数再被调用，这就意味着`this`是作为派生类的第一个实例开始。基类的其他属性进行修饰**
+`ES6`的`class` 却是恰恰相反:
+**`ES6`的`class`继承，`this`首先是由基类来创建，后面通过派生类的构造函数来改变。这样才会导致开始就是由基类内置的功能来接收所有的功能**
+再来看看下面的例子:
+```js
+class MyArray extends Array {
+    // empty
+}
+
+var colors = new MyArray();
+colors[0] = "red";
+console.log(colors.length);         // 1
+
+colors.length = 0;
+console.log(colors[0]);             // undefined
+```
+这样就会完全继承`Array`的内置功能。
+
+### Symbol.species属性
+`extends`一个有趣的事情就是任何继承了内置的功能，最终返回。内置的实例都会自动返回到派生类的实例。例如上面的`MyArray`继承自`Array`，像`slice`这样返回的是`MyArray`这个派生类的实例。
+```js
+class MyArray extends Array {
+    // empty
+}
+
+let items = new MyArray(1, 2, 3, 4),
+    subitems = items.slice(1, 3);
+
+console.log(items instanceof MyArray);      // true
+console.log(subitems instanceof MyArray);   // true
+```
+在上面的代码中，`MyArray`实例返回`slice()`方法.正常情况下, `slice()`方法继承自`Array`并且返回`Array`的实例。实际上是`Symbol.species`在幕后进行改变。
+
+`Symbol.species`是用来定义返回函数的一个静态访问器属性，这个返回的函数是必须在实例方法内创建类的实例（而不是使用构造函数）时使用的构造函数。
+
+以下的内置类型定义了`Symbol.species`:
+- Array
+- ArrayBuffer
+- Map
+- Promise
+- Set
+- RegExp
+- Typed Arrays
+
+上面的每一个都有默认的`Symbol.species`,他返回`this`，意味着该属性始终返回构造函数。
+
+我们来定义一个带有`Symbol.species`的类
+```js
+class MyClass {
+    static get [Symbol.species]() {
+        return this;
+    }
+
+    constructor(value) {
+        this.value = value;
+    }
+
+    clone() {
+        return new this.constructor[Symbol.species](this.value);
+    }
+}
+```
+可以发现上面这段代码，有个静态的访问器属性，而且也可以看到上面只有`getter`,并没有`setter`,因为要修改内置的类型，这是不可能的。
+**所有调用`this.constructor[Symbol.species]`的都会返回派生类** `MyClass`. 如`clone`调用了，并且返回了一个新的实例。
+再看下面的例子:
+```js
+class MyClass {
+    static get [Symbol.species]() {
+        return this;
+    }
+
+    constructor(value) {
+        this.value = value;
+    }
+
+    clone() {
+        return new this.constructor[Symbol.species](this.value);
+    }
+}
+
+class MyDerivedClass1 extends MyClass {
+    // empty
+}
+
+class MyDerivedClass2 extends MyClass {
+    static get [Symbol.species]() {
+        return MyClass;
+    }
+}
+
+let instance1 = new MyDerivedClass1("foo"),
+    clone1 = instance1.clone(),
+    instance2 = new MyDerivedClass2("bar"),
+    clone2 = instance2.clone();
+
+console.log(clone1 instanceof MyClass);             // true
+console.log(clone1 instanceof MyDerivedClass1);     // true
+console.log(clone2 instanceof MyClass);             // true
+console.log(clone2 instanceof MyDerivedClass2);     // false
+```
+
+在上面的代码中：
+1. `MyDerivedClass1`继承自`MyClass`并且**没有改变`Symbol.species`属性**, 返回了`MyDerivedClass1`的实例。
+2. `MyDerivedClass2`继承自`MyClass`并且**改变了`Symbol.species`属性**返回`MyClass`.当`MyDerivedClass2`实例调用`clone`方法的时候，返回的是`MyClass`的实例.
+使用`Symbol.species`，任何派生类都可以确定方法返回实例时返回的值的类型。
+
+例如，`Array`使用`Symbol.species`指定用于返回数组的方法的类。在从`Array`派生的类中，可以确定从继承方法返回的对象类型。如下：
+```js
+class MyArray extends Array {
+    static get [Symbol.species]() {
+        return Array;
+    }
+}
+
+let items = new MyArray(1, 2, 3, 4),
+    subitems = items.slice(1, 3);
+
+console.log(items instanceof MyArray);      // true
+console.log(subitems instanceof Array);     // true
+console.log(subitems instanceof MyArray);   // false
+```
+上面的代码是重写了`Symbol.species`,他继承自`Array`.所有继承的数组的方法，这样使用的就是`Array`的实例，而不是`MyArray`的实例.
+
+**通常情况下，要想在类方法中使用`this.constructor`方法，就应该使用`Symbol.species`属性.**
+
 
