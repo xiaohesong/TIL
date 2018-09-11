@@ -1,3 +1,5 @@
+# [ES6 class](https://leanpub.com/understandinges6/read#leanpub-auto-introducing-javascript-classes)
+
 ### class基本声明
 
 在说`class`之前，想必大家肯定会想到`constructor function`. 看下面代码：
