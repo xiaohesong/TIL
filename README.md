@@ -49,30 +49,20 @@
 ##### dom
 - [规范 spec dom](https://dom.spec.whatwg.org/)
 ##### css&html
-
-<details>
- <summary>显示内容</summary>
-  
- - [规范 spec html](https://html.spec.whatwg.org/)
- - [Learn to Code HTML & CSS](https://learn.shayhowe.com/html-css/)
- - [css-Learn CSS Layout](http://book.mixu.net/css/)
- - [Concise courses for badass web developers](https://egghead.io/)
- - [30-seconds-of-css](https://github.com/atomiks/30-seconds-of-css)
-</details>
+- [规范 spec html](https://html.spec.whatwg.org/)
+- [Learn to Code HTML & CSS](https://learn.shayhowe.com/html-css/)
+- [css-Learn CSS Layout](http://book.mixu.net/css/)
+- [Concise courses for badass web developers](https://egghead.io/)
+- [30-seconds-of-css](https://github.com/atomiks/30-seconds-of-css)
 
 ##### js
-<details>
-  <summary>显示内容</summary>
-  
-  - [Series - How JavaScript works: an overview of the engine, the runtime, and the call stack](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
-  - [js 宏任务 微任务是怎么执行的](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
-  - [variables-lifecycle-and-why-let-is-not-hoisted](https://dmitripavlutin.com/variables-lifecycle-and-why-let-is-not-hoisted/)
-  - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
-  - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
-  - [Learn Plain JavaScript from Top Articles for the Past Year (v.2018)](https://medium.mybridge.co/learn-plain-javascript-from-top-tutorials-for-the-past-year-v-2018-d964bc597a45)
-  - [The Modern JavaScript Tutorial](https://javascript.info/)
-  
-</details>
+- [Series - How JavaScript works: an overview of the engine, the runtime, and the call stack](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
+- [js 宏任务 微任务是怎么执行的](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
+- [variables-lifecycle-and-why-let-is-not-hoisted](https://dmitripavlutin.com/variables-lifecycle-and-why-let-is-not-hoisted/)
+- [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
+- [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
+- [Learn Plain JavaScript from Top Articles for the Past Year (v.2018)](https://medium.mybridge.co/learn-plain-javascript-from-top-tutorials-for-the-past-year-v-2018-d964bc597a45)
+- [The Modern JavaScript Tutorial](https://javascript.info/)
 
 ##### ts
 - [free typescript course](https://scrimba.com/g/gintrototypescript)
@@ -87,18 +77,14 @@
 - [David Shariff blog](http://davidshariff.com/blog/)
 
 ##### 性能相关
-<details>
-  <summary>显示内容</summary>  
-  
-  ##### 懒加载
-   - [Lazy Loading Images and Video](https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/)
-  ##### 网站性能
-   - [Google PageSpeed Insights](https://developers.google.com/speed/docs/insights/rules?csw=1)
-   - [YaHoo Best Practices for Speeding Up Your Web Site](https://developer.yahoo.com/performance/rules.html?guccounter=1)
-   - [Steve Souders - 14 Rules for Faster-Loading Web Sites](http://stevesouders.com/hpws/rules.php)
-  #### 浏览器
-   - [浏览器原理](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
-</details>
+###### 懒加载
+ - [Lazy Loading Images and Video](https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/)
+###### 网站性能
+ - [Google PageSpeed Insights](https://developers.google.com/speed/docs/insights/rules?csw=1)
+ - [YaHoo Best Practices for Speeding Up Your Web Site](https://developer.yahoo.com/performance/rules.html?guccounter=1)
+ - [Steve Souders - 14 Rules for Faster-Loading Web Sites](http://stevesouders.com/hpws/rules.php)
+#### 浏览器
+ - [浏览器原理](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
    
 
 ##### 前端新手学习库
