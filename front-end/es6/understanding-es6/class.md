@@ -497,7 +497,8 @@ console.log(subitems instanceof MyArray);   // true
 ```
 在上面的代码中，`MyArray`实例返回`slice()`方法.正常情况下, `slice()`方法继承自`Array`并且返回`Array`的实例。实际上是`Symbol.species`在幕后进行改变。
 
-`Symbol.species`是用来定义返回函数的一个静态访问器属性，这个返回的函数是必须在实例方法内创建类的实例（而不是使用构造函数）时使用的构造函数。
+`Symbol.species`是用来定义返回函数的一个静态访问器属性，这个返回的函数是每当需要在实例方法内创建实例的时候使用到的构造函数(而不是直接使用构造函数)。
+
 
 以下的内置类型定义了`Symbol.species`:
 - Array
