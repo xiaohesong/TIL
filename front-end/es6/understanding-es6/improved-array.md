@@ -442,4 +442,29 @@ console.log(mapped instanceof Array);       // false
 除了`concat`方法之外，此列表中的方法可以更改数组的大小。因为型化数组不能更改大小，所以这些数组不适用于类型化数组。至于为什么不能使用`concat`方法， 因为可能连接的两个数组不是相同类型的，这个就和类型化数组的初衷相悖了。
 
 ### 添加的方法
-类型化数组在常规数组方法的基础上添加了两个新的方法`set`和`subarray`
+类型化数组在常规数组方法的基础上添加了两个新的方法`set`和`subarray`。
+这两个方法是相反的，因为`set`将另一个数组复制到现有的类型化数组中，而`subarray`将现有类型数组的一部分提取到新的类型数组中。
+
+`set`方法接受一个数组（`typed`或`regular`）和一个可选的偏移量来插入数据,如果没有传递任何内容，则偏移量默认为`0`。数组参数中的数据将复制到目标类型数组中，同时确保仅使用有效的数据类型。如下:
+```js
+ints = new Int16Array(4);
+
+ints.set([25, 50]);
+ints.set([75, 100], 2);
+
+console.log(ints.toString());   // 25,50,75,100
+```
+很方便对不对，可以直接进行设置。
+
+`subarray`方法接受可选的开始和结束索引（结束索引是独占的，类`slice`方法的索引）并返回一个新的类型化数组。在这里你甚至可以省略两个参数，来创建一个类型化数组的克隆版本。
+```js
+ints = new Int16Array([25, 50, 75, 100]),
+subints1 = ints.subarray(),
+subints2 = ints.subarray(2),
+subints3 = ints.subarray(1, 3);
+
+console.log(subints1.toString());   // 25,50,75,100
+console.log(subints2.toString());   // 75,100
+console.log(subints3.toString());   // 50,75
+```
+可以发现，使用起来也很方便不是。
