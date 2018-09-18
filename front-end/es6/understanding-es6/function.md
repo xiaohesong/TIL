@@ -68,6 +68,7 @@ let second = 1;
   严格模式下:
   
   ```javascript
+  'use strict'
   if (true) {
 
     console.log(typeof doSomething);        // "function"
@@ -79,7 +80,7 @@ let second = 1;
     doSomething();
   }
 
-  console.log(typeof doSomething); 
+  console.log(typeof doSomething); // undefined
   ```
   
   这个例子可以看出很多的东西了。首先他也会进行提升，在未声明的时候，就可以获取到类型，这是因为被提升到块级顶级了。然后在外部访问函数，是访问不到的。
