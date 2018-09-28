@@ -16,3 +16,8 @@
 - term (术语)
 - discuss (讨论)
 - workarounds(解决方法)
+
+
+### 短语
+- not .. until(知道..才) => isn't handled until later(直到以后才处理)
+- Sets of (套)
