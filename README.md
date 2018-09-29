@@ -1,6 +1,6 @@
-# TIL(Today I Learn) 记录每天自己学习到的东西.
+* 本库记录自己每日学习,倾向于前端，相当于个人博客，可以在[gitbook中预览](https://xiaohesong.gitbook.io/today-i-learn/)
+* 还有一篇关于自己学习`react`的[记录](https://github.com/xiaohesong/ums/wiki)
 
-> ## [react学习记录](https://github.com/xiaohesong/ums/wiki)
 
 ## 目录
 - [前端](#前端)
