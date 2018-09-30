@@ -145,9 +145,8 @@ items.pushAll(colors);
 为了完全支持模块，`Web`浏览器必须更新每个机制。这些细节在`HTML`规范中定义，在这里对它们进行总结。
 
 ###### Using Modules With <script>
-<script>元素的默认行为是将JavaScript文件作为脚本（而不是模块）加载。缺少type属性或type属性包含JavaScript内容类型（例如“text / javascript”）时
-会发生这种情况。然后，<script>元素可以执行内联代码或加载src中指定的文件。为了支持模块，“模块”值被添加​​为类型选项。
-将类型设置为“module”会告诉浏览器将src指定的文件中包含的任何内联代码或代码作为模块而不是脚本加载。
+    
+`<script>`元素的默认行为是将`JavaScript`文件作为脚本（而不是模块）加载。缺少`type`属性或`type`属性包含`JavaScript`内容类型（例如`“text / javascript”`）时会发生这种情况。然后，`<script>`元素可以执行内联代码或加载`src`中指定的文件。为了支持模块，“模块”值被添加​​为类型选项。将类型设置为`“module”`会告诉浏览器将`src`指定的文件中包含的任何内联代码或代码作为模块而不是脚本加载。
 
 ```js
 <!-- load a module JavaScript file -->
@@ -162,6 +161,7 @@ let result = sum(1, 2);
 
 </script>
 ```
+
 第一个加载外部的`module`.第二个<script>元素包含直接嵌入网页的模块。变量结果不会全局公开，因为它仅存在于模块中（由<script>元素定义），因此不会作为属性添加到窗口中。
 
 正如所见，包括网页中的模块相当简单，类似于包含脚本。但是，模块的加载方式存在一些差异。
@@ -171,6 +171,7 @@ let result = sum(1, 2);
 从而提供良好的向后兼容性。
 
 ###### Module Loading Sequence in Web Browsers
+
 模块的独特之处在于，与脚本不同，它们可以使用import来指定必须加载其他文件才能正确执行。为了支持该功能，`<script type =“module”>`始终表现为
 应用了`defer`属性。`defer`属性对于加载脚本文件是可选的，但始终应用于加载模块文件。 一旦HTML解析器遇到带有`src`属性的`<script type =“module”>`，
 模块文件就会开始下载，但是在完全解析`Document`之后才会执行。模块也按它们在`HTML`文件中出现的顺序执行。这意味着第一个`<script type =“module”>`
@@ -214,7 +215,7 @@ let result = sum(1, 2);
 
 内联模块的作用与其他两个模块类似，不是先下载代码。加载导入资源和执行模块的顺序完全相同。
 
-> 在`<script type =“module”>`上会忽略`​​defer`属性，因为它的行为就像应用了defer一样。
+> 在`<script type =“module”>`上会忽略`defer`属性，因为它的行为就像应用了defer一样。
 
 ###### Asynchronous Module Loading in Web Browsers
 与脚本一起使用时，`async`会在下载和解析文件后立即执行脚本文件。 但是，文档中异步脚本的顺序不会影响脚本的执行顺序。 脚本在完成下载后始终执行，而不等待包含文档完成解析。
@@ -227,12 +228,16 @@ let result = sum(1, 2);
 ```
 
 ###### Loading Modules as Workers
+
 `Web Worker`和`Service Worker`等`Worker`在`Web`页面上下文之外执行`JavaScript`代码。 创建新`worker`需要创建一个新的实例`Worker`（或另一个类）并传入`JavaScript`文件的位置。 默认加载机制是将文件作为脚本加载，如下所示：
+
 ```js
 // load script.js as a script
 let worker = new Worker("script.js");
 ```
+
 为了支持加载模块，`HTML`标准的开发人员为这些构造函数添加了第二个参数，第二个参数是一个具有`type`属性的对象，其默认值为`“script”`。您可以将类型设置为`“module”`以加载模块文件：
+
 ```js
 // load module.js as a module
 let worker = new Worker("module.js", { type: "module" });
