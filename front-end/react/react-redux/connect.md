@@ -1,4 +1,4 @@
-今天看了下`react-redux`的源码，主要来看下`connect`的方法
+今天看了下`react-redux`的源码，主要来看下`connect`的方法, 当前版本**5.1.0**
 
 首先找到`connect`的入口文件。在`src/index.js`下找到。对应`connect`文件夹下的`connect.js`文件。
 
