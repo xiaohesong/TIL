@@ -43,6 +43,7 @@
 - [生成animation的谷歌插件](https://chrome.google.com/webstore/detail/animation/lhbbbidpkalopmenjffckblgbdhcffpa/related)
 - [github排名趋势](https://risingstars.js.org/2017/zh/)
 - [监控网站](https://www.fundebug.com/)
+- [ES的支持情况](http://kangax.github.io/compat-table/es6/#test-let_temporal_dead_zone)
   
 #### 前端学习链接
 
