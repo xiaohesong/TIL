@@ -66,6 +66,7 @@
  - [Learn Plain JavaScript from Top Articles for the Past Year (v.2018)](https://medium.mybridge.co/learn-plain-javascript-from-top-tutorials-for-the-past-year-v-2018-d964bc597a45)
  - [The Modern JavaScript Tutorial](https://javascript.info/)
  - [4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them](https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/)
+ - [v8 dev](https://v8.dev/)
 
 ##### ts
  - [free typescript course](https://scrimba.com/g/gintrototypescript)
