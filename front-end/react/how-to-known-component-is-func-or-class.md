@@ -178,6 +178,7 @@ Person('George');   // 🔴 Can’t call class as a function
 ***
 
 到现在为止，你应该大致了解使用`new`或不使用`new`来调用某些内容之间的区别：
+
 |  | `new Person()` | `Person()` |
 |---|---|---|
 | `class` | ✅ `this` is a `Person` instance | 🔴 `TypeError`
