@@ -112,3 +112,4 @@
 - [javascript高级程序设计3](http://www.wrox.com/WileyCDA/WroxTitle/Professional-JavaScript-for-Web-Developers-3rd-Edition.productCd-1118026691.html)
 - [exploring es6](http://exploringjs.com/es6/index.html)
 - [you don't known js](https://github.com/getify/You-Dont-Know-JS)
+- [Eloquent JavaScript - 3rd edition](https://eloquentjavascript.net/index.html)
