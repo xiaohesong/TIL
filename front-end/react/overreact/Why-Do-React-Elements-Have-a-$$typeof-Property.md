@@ -123,3 +123,70 @@ React 0.14中的修复是[使用Symbol标记每个React元素](https://github.co
 为什么是个具体的号码？ 0xeac7看起来有点像“React”。
 
 
+### 阅读之后的尝试
+下面就是个人对于`$$typeof`的测试。
+
+```js
+class Example extends React.Component {
+  state = {
+    show: null
+  }
+
+  componentDidMount() {
+    const show = JSON.parse(JSON.stringify(<button className='custom'>'click me'</button>))
+    show.$$typeof = Symbol.for('react.element') // 你试试没有这行的效果
+    this.setState({show})
+  }
+  
+  render(){
+    return this.state.show
+  }
+}
+
+export default Example
+```
+这是为什么？因为上面的代码在`JSON.stringify`处理之后，`symbol`值会被忽略，所以需要手动加上。你可以试试加与不加的区别。
+
+其实这个`$$typeof`主要就是像上文阐述的，为了防止后端的`bug`。比如数据库`user`表下面有个`name`字段，正常的`react`展示会像下面这样:
+
+```js
+render() {
+  const {user} = this.state 
+  return <span>{user.name}</span>
+}
+```
+上面的`jsx`代码等同于下面的[createElement方式](https://reactjs.org/docs/react-api.html#createelement):
+```js
+render() {
+  const {user} = this.state 
+  return(
+    React.createElement('span', null, user.name)
+  )
+}
+```
+
+如果这个`name`是一个`json`，我们知道`createElement`的第三个参数是一个`children`，他可以是组件，那么这个对象就会被当做是组件，所以加上了这个。
+
+让我们来试试吧:
+```js
+class Example extends React.Component {
+  state = {
+    show: null
+  }
+
+  componentDidMount() {
+    let obj = {type: 'button', ref: null, key: null, props: {children: 'i am children'}} //用户恶意模拟一个element
+    obj.$$typeof = Symbol.for('react.element') // 如果没有这个去验证，就直接被当做一个children去处理了
+    const show = <button className='custom'>{obj}</button>
+    this.setState({show})
+  }
+  
+  render(){
+    return this.state.show
+  }
+}
+
+export default Example
+```
+
+推荐看看[React component, elements and instance](https://github.com/xiaohesong/TIL/blob/master/front-end/react/component-element-instance.md)
