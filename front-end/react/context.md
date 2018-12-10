@@ -77,4 +77,4 @@ Foo.contextTypes = {
 
 然后会发现`fileName`在`context`内。
 
-具体的内容还[请看`API`](https://reactjs.org/docs/context.html)
+具体的内容还[请看`API`](https://reactjs.org/docs/legacy-context.html)
