@@ -87,9 +87,18 @@ const initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps')
 1. `whenMergePropsIsFunction`存在`mergeProps`并且是`function`的时候，[会进行处理并返回一个函数](https://github.com/reduxjs/react-redux/blob/master/src/connect/mergeProps.js#L8)，
 这个函数的第一个参数是一个`dispatch`,第二个参数是一个对象，并且对象接收三个属性,如果不是一个方法，那就返回`undefined`.
 
-2. `whenMergePropsIsOmitted`方法会判断`mergeProps`是不是存在，如果存在就返回`undefined`,否则就会返回一个[默认的`mergeProps`](https://github.com/reduxjs/react-redux/blob/master/src/connect/mergeProps.js#L3)
+2. `whenMergePropsIsOmitted`方法会判断`mergeProps`是不是存在，如果存在就返回`undefined`,否则就会返回一个[默认的`mergeProps`](https://github.com/reduxjs/react-redux/blob/master/src/connect/mergeProps.js#L3),可以发现，是在函数里调用的默认的`mergeProps`.
 
 `mapStateToProps&mapDispatchToProps`和`mergeProps`的初始化类似，都会进行判断再去操作。
+
+他们的初始化会返回一个函数: 
+- initMapStateToProps & initMapDispatchToProps
+
+  这两个实际上是`wrapMapToProps.js`中的`wrapMapToPropsFunc`函数返回的一个`initProxySelector`函数.
+  
+- initMergeProps
+
+  如果是空`mergeProps`参数就使用默认的，如果`mergeProps`参数是一个函数，那就使用`mergeProps.js`的`wrapMergePropsFunc`并且返回`initMergePropsProxy`函数。
 
 然后`connect`后面的第四个参数是一个对象，他接收一些属性。
 
@@ -112,8 +121,22 @@ const initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps')
 [这个`hoistStatics`](https://github.com/mridgway/hoist-non-react-statics)是一个类似`Object.assign`的`copy`非`react`的`static property`.
 换句话说，就是把传递的容器组件自定义的静态属性附加到`connect`组件上去。
 
-我们再看看这个`connect class`, 他在构造函数里直接运行了`this.initSelector()和this.initSubscription()`我们先看下`initSelector`，
-[发现就是使用的`selectorFactory`方法来处理的](https://github.com/reduxjs/react-redux/blob/master/src/components/connectAdvanced.js#L192)，
+我们再看看这个`connect class`, 他在构造函数里直接运行了`this.initSelector()和this.initSubscription()`我们先看下`initSelector`：
+```js
+initSelector() {
+  // 这里的sourceSelector 就是`selectFactory`里的返回的闭包(pureFinalPropsSelector),
+  // 在运行返回闭包之前已经处理了`initMapStateToProps`,并且那个地方返回的是`proxy`, 有标记
+  // selectorFactory会在返回pureFinalPropsSelector函数(handleSubsequentCalls函数或者handleFirstCall函数)
+  const sourceSelector = selectorFactory(this.store.dispatch, selectorFactoryOptions)
+
+  //返回selector对象，包含一个run函数
+  this.selector = makeSelectorStateful(sourceSelector, this.store) 
+
+
+  this.selector.run(this.props)
+}
+```
+别急，我们慢慢的看下去。[发现就是使用的`selectorFactory`方法来处理的](https://github.com/reduxjs/react-redux/blob/master/src/components/connectAdvanced.js#L192)，
 我们就看看这个方法是怎么处理的。[对外暴露的方法在这里](https://github.com/reduxjs/react-redux/blob/master/src/connect/selectorFactory.js#L100),
 他会根据`pure`属性来确定到底该如何处理。其实我们从这一段注释就可以知道了:
 
@@ -125,11 +148,102 @@ const initMergeProps = match(mergeProps, mergePropsFactories, 'mergeProps')
 ```
 就是去处理到底是否应该重新渲染，所有如果你想要刷新的情况，可以在`connect`的传参的第四个对象里改变`pure`为`false`.
 
+假设这个是一个`pure`,那么就会继续调用`pureFinalPropsSelectorFactory`。看这个参数:
+```js
+// 下面的这个调用是在闭包的返回基础上调用，见`connect.js`的`createConnect`方法里
+// 下面的这个initMapStateToProps是相当于运行的闭包，即`wrapMapToProps`里的`initProxySelector`.
+// 但是这几乎等于没有运行，因为这里直接返回了proxy函数.
+const mapStateToProps = initMapStateToProps(dispatch, options) // return proxy
+const mapDispatchToProps = initMapDispatchToProps(dispatch, options)
+const mergeProps = initMergeProps(dispatch, options)
+const selectorFactory = options.pure
+    ? pureFinalPropsSelectorFactory
+    : impureFinalPropsSelectorFactory
+
+  // 上面返回了mapToProps之后，实则是返回了proxy.
+  return selectorFactory(
+    mapStateToProps,
+    mapDispatchToProps,
+    mergeProps,
+    dispatch,
+    options
+  )
+```
+
+好的，我们再看`pureFinalPropsSelectorFactory`函数:
+
+```js
+return function pureFinalPropsSelector(nextState, nextOwnProps) {
+    return hasRunAtLeastOnce
+      ? handleSubsequentCalls(nextState, nextOwnProps)
+      : handleFirstCall(nextState, nextOwnProps)
+  }
+```
+
+这个函数太长，我们看他返回的。那么我们直接在看看他调用的`handleFirstCall`函数:
+
+```js
+function handleFirstCall(firstState, firstOwnProps) {
+    state = firstState
+    ownProps = firstOwnProps
+    // 这里实际上是在调用`wrapMapToProps -> wrapMapToPropsFunc`返回的`proxy`函数
+    //调用proxy函数会返回props,最后把这些props给merged并返回。
+    stateProps = mapStateToProps(state, ownProps)
+    dispatchProps = mapDispatchToProps(dispatch, ownProps)
+    mergedProps = mergeProps(stateProps, dispatchProps, ownProps)
+    hasRunAtLeastOnce = true
+    return mergedProps
+  }
+```
+
+好吧，这里看出来了吗？`mergedProps`，这又是啥，我们来看看上面说到的`proxy`函数:
+
+```js
+export function wrapMapToPropsFunc(mapToProps, methodName) {
+  return function initProxySelector(dispatch, { displayName }) {
+    const proxy = function mapToPropsProxy(stateOrDispatch, ownProps) {
+      return proxy.dependsOnOwnProps
+        ? proxy.mapToProps(stateOrDispatch, ownProps)
+        : proxy.mapToProps(stateOrDispatch)
+    }
+
+    // allow detectFactoryAndVerify to get ownProps
+    proxy.dependsOnOwnProps = true
+
+    proxy.mapToProps = function detectFactoryAndVerify(stateOrDispatch, ownProps) {
+      //这里是重点，把mapToProps指向`connect.js`里传递进来的`mapXxToProps`,也就是我们组建写的：
+      // const mapStateToProps = (state, ownProps) => ({myNeedProps: state.yourState})
+      // 不重写会死循环
+      proxy.mapToProps = mapToProps
+      proxy.dependsOnOwnProps = getDependsOnOwnProps(mapToProps)
+      let props = proxy(stateOrDispatch, ownProps)
+
+      if (typeof props === 'function') {
+        proxy.mapToProps = props
+        proxy.dependsOnOwnProps = getDependsOnOwnProps(props)
+        props = proxy(stateOrDispatch, ownProps)
+      }
+
+      if (process.env.NODE_ENV !== 'production') 
+        verifyPlainObject(props, displayName, methodName)
+
+      return props
+    }
+
+    return proxy
+  }
+}
+```
+可以看到吧，`proxy`会给你返回`props`。
+
 然后`initSelector `同时也会为当前对象创建一个`selector`：
+我们结合上面的`initSelector`可以知道，`sourceSelector`就是`selectorFactory`返回的`handleSubsequentCalls`函数或者`handleFirstCall`函数：
+
 ```js
 function makeSelectorStateful(sourceSelector, store) {
   // wrap the selector in an object that tracks its results between runs.
   const selector = {
+    // props 就是this.props，然后会调用sourceSelector进行mergeProps
     run: function runComponentSelector(props) {
       try {
         const nextProps = sourceSelector(store.getState(), props)
