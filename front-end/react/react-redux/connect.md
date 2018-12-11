@@ -310,3 +310,13 @@ render() {
 }
 ```
 可以看到.他会对属性进行重写成`false`,如果报错，就跑出错误，如果正常，那就进行`render`创建元素到页面。
+
+### 总结
+- provider
+这个主要就是为了提供一个上下文的`store`,使得下级的组件不需要`props`可以直接获取`store`。
+
+- mapStateToProps&mapDispatchToProps
+
+这两个就是把对象放在`props`里。 主要的操作就是通过`wrapMapToProps.js`中的`wrapMapToPropsFunc`函数去处理，在闭包`proxy`中代理我们传入的`mapToProps`方法去返回合并的`props`。 这个调用的`proxy`函数的是在`connectAdvanced.js`的`makeSelectorStateful`函数中，会传入一个`store.getState()`。至于`dispatch`则在`initSelector`初始化的时候就传递进去了。
+
+`mergeProps`就是把这些`props`给合并起来。
