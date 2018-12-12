@@ -320,3 +320,9 @@ render() {
 这两个就是把对象放在`props`里。 主要的操作就是通过`wrapMapToProps.js`中的`wrapMapToPropsFunc`函数去处理，在闭包`proxy`中代理我们传入的`mapToProps`方法去返回合并的`props`。 这个调用的`proxy`函数的是在`connectAdvanced.js`的`makeSelectorStateful`函数中，会传入一个`store.getState()`。至于`dispatch`则在`initSelector`初始化的时候就传递进去了。
 
 `mergeProps`就是把这些`props`给合并起来。
+
+- 没有使用`setState`,是如何改变状态进行渲染的
+
+  他会对`connectAdvanced.js`的`onStateChange`进行订阅，进行`selector.run`去对比前后的`props`。因为我们知道`redux`的`dispatch`代码里有执行
+  订阅相关的操作。
+  这样每次`dispatch`之后都会去判断`shouldComponentUpdate`,如果是就会去`this.setState(dummyState)`去`render`。
