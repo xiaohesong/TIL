@@ -82,7 +82,7 @@
 
 ##### 性能相关
 ###### 懒加载
- - [Lazy Loading Images and Video](https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/)
+ - [Lazy Loading Images and Video](https://developers.google.com/web/fundamentals/performance/lazy-loading-guidance/images-and-video/) - 从这里你应该找到更多地性能优化
 ###### 网站性能
  - [Google PageSpeed Insights](https://developers.google.com/speed/docs/insights/rules?csw=1)
  - [YaHoo Best Practices for Speeding Up Your Web Site](https://developer.yahoo.com/performance/rules.html?guccounter=1)
