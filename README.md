@@ -81,6 +81,7 @@
  - [Jake google developer](https://jakearchibald.com/)
  - [David Shariff blog](http://davidshariff.com/blog/)
  - [Benedikt Meurer blog](https://benediktmeurer.de/)
+ - [tylermcginnis blog](https://tylermcginnis.com/blog)
 
 ##### 性能相关
 ###### 懒加载
