@@ -60,3 +60,7 @@ export default function shallowEqual(objA, objB) {
   return true
 }
 ```
+
+#### 误区
+这个是react-redux会有对比，我以为setState也会进行compare, 以至于误导了别人。其实这个对比不是根据`setState`这个方法来的，而是根据组件来的。
+`PureComponent`有`scu`进行浅比较对比，这点各位知道，但是 **`Component`组件的`state`不会进行对比!!** 
