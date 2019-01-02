@@ -66,4 +66,4 @@
 
 这不会使我的知识和经验贬值。我可以做很多事情。例如，我需要的时候学习技术
 
-> 更新：我还[写](https://overreacted.io/the-elements-of-ui-engineering/)了一些我知道的事情。
+> 更新：我还[写](https://github.com/xiaohesong/TIL/blob/master/front-end/react/overreact/ui-element-problem-and-build-yourself.md)了一些我知道的事情。
