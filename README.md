@@ -56,6 +56,7 @@
  - [css-Learn CSS Layout](http://book.mixu.net/css/)
  - [Concise courses for badass web developers](https://egghead.io/)
  - [30-seconds-of-css](https://github.com/atomiks/30-seconds-of-css)
+ - [HTML Tutorials. And Stuff.](http://htmldog.com/)
 
 ##### js
  - [Series - How JavaScript works: an overview of the engine, the runtime, and the call stack](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
