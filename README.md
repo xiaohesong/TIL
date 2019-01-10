@@ -69,6 +69,7 @@
  - [The Modern JavaScript Tutorial](https://javascript.info/)
  - [4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them](https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/)
  - [v8 dev](https://v8.dev/)
+ - [front-end masters](https://frontendmasters.com/)
 
 ##### ts
  - [free typescript course](https://scrimba.com/g/gintrototypescript)
@@ -83,6 +84,7 @@
  - [David Shariff blog](http://davidshariff.com/blog/)
  - [Benedikt Meurer blog](https://benediktmeurer.de/)
  - [tylermcginnis blog](https://tylermcginnis.com/blog)
+ - [javascript is sexy](http://javascriptissexy.com/)
 
 ##### 性能相关
 ###### 懒加载
