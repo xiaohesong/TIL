@@ -72,7 +72,7 @@
  - [front-end masters](https://frontendmasters.com/)
 
 ##### ts
- - [free typescript course](https://scrimba.com/g/gintrototypescript)
+ - [free typescript course](https://scrimba.com/g/gintrototypescript), 对应的，你应该在[这个网站](https://scrimba.com/)找到一些其他的学习资源
 ##### flex
  - [A Complete Guide to Flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/#article-header-id-2)
  - [DIVE INTO FLEXBOX](https://bocoup.com/blog/dive-into-flexbox)
