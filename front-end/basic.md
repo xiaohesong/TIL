@@ -1,5 +1,13 @@
-- `NaN` => Not a Number
+- `NaN`
 
+  这个得字面意思就是"Not a Number"。但是这个描述的并不是很好。把它描述成"无效的数字"反而会好点。
+  参考[这里](https://github.com/xiaohesong/TIL/blob/master/front-end/javascript/you-dont-known-js/types%26grammer/Chapter2-Values.md#special-numbers)
+
+- `==` vs `===`
+
+  大多数书籍中对于这两者的描述通常是：`==`是判断值是否相等，`===`是判断值和类型是否都相等。 这个说法是 **错误** 的。
+  更准确的说：“`==`允许在比较中强制，`===`不允许强制。”
+  参考[这里](https://github.com/xiaohesong/TIL/blob/master/front-end/javascript/you-dont-known-js/types%26grammer/Chapter4-coercion.md#loose-equals-vs-strict-equals)
 
 #### 原始类型和引用类型的区别
 
