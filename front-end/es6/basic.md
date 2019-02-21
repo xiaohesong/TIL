@@ -55,6 +55,14 @@ a.getX.bind(b)()
 2. `apply`和`call`类似,但是`apply`后面的第二个参数是数组.`call`是一个个的顺序书写.
 3. `bind'`和`apply call`相比.他是新建了一个绑定函数.再去执行.不会立即执行.比如上例就`bind`后面还需要`()`执行.[bind参数](https://github.com/xiaohesong/TIL/issues/16)
 
+**提示：** 这些方法对于原始类型，都会有一个`boxing`发生(`new [ValueType]`)。
+```js
+function foo(){
+  console.log(this.length)
+}
+foo.call('xiaohesong')
+```
+
 - tips
 
 ```javascript
