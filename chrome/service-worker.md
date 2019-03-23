@@ -1,0 +1,1 @@
+关于`service-worker`，你可能没有注意到两个`header`。具体的可以看下这个文章[Two HTTP headers related to Service Workers you never may have heard of](https://medium.com/dev-channel/two-http-headers-related-to-service-workers-you-never-may-have-heard-of-c8862f76cc60)
