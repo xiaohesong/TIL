@@ -86,6 +86,7 @@
  - [Benedikt Meurer blog](https://benediktmeurer.de/)
  - [tylermcginnis blog](https://tylermcginnis.com/blog)
  - [javascript is sexy](http://javascriptissexy.com/)
+ - [Dr. Axel Rauschmayer](http://2ality.com/)
 
 ##### 性能相关
 ###### 懒加载
