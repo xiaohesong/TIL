@@ -2,7 +2,8 @@ JavaScript中的异步处理传统上以速度不快而闻名。更糟的是，�
 
 **注意：** 如果你更喜欢观看演示文稿而不是阅读文章，那么请欣赏下面的视频！如果不是，请跳过视频并继续阅读。
 
-<iframe width="720" height="405" src="https://www.youtube.com/embed/DFP5DKDQfOc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[![查看](https://i.ytimg.com/vi/DFP5DKDQfOc/maxresdefault.jpg)](https://www.youtube.com/embed/DFP5DKDQfOc)
 
 ## 一种新的异步编程方法
 
