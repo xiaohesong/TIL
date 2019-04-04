@@ -87,6 +87,7 @@
  - [tylermcginnis blog](https://tylermcginnis.com/blog)
  - [javascript is sexy](http://javascriptissexy.com/)
  - [Dr. Axel Rauschmayer](http://2ality.com/)
+ - [Mrale's blog](https://mrale.ph/)
 
 ##### 性能相关
 ###### 懒加载
