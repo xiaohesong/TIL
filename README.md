@@ -123,3 +123,4 @@
 - [exploring es6](http://exploringjs.com/es6/index.html)
 - [you don't known js](https://github.com/getify/You-Dont-Know-JS)
 - [Eloquent JavaScript - 3rd edition](https://eloquentjavascript.net/index.html)
+- [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript)
