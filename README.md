@@ -51,6 +51,7 @@
 
 ##### dom
  - [规范 spec dom](https://dom.spec.whatwg.org/)
+ 
 ##### css&html
  - [规范 spec html](https://html.spec.whatwg.org/)
  - [Learn to Code HTML & CSS](https://learn.shayhowe.com/html-css/)
@@ -58,6 +59,7 @@
  - [Concise courses for badass web developers](https://egghead.io/)
  - [30-seconds-of-css](https://github.com/atomiks/30-seconds-of-css)
  - [HTML Tutorials. And Stuff.](http://htmldog.com/)
+ - [居中的法子](https://css-tricks.com/centering-css-complete-guide/) -- 这个网站你应该去找到其他的资源
 
 ##### js
  - [Series - How JavaScript works: an overview of the engine, the runtime, and the call stack](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
