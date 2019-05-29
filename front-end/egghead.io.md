@@ -4,4 +4,4 @@
 
 - [Just Enough Functional Programming in JavaScript - Kyle Shevlin](https://egghead.io/courses/just-enough-functional-programming-in-javascript)
 
-  这个视频搭配着之前的一篇[什么是函数式编程](https://github.com/xiaohesong/TIL/blob/master/front-end/javascript/what-is-function-program.md)，绝对会很美味。
+  这个视频搭配着之前的一篇[什么是函数式编程](https://github.com/xiaohesong/TIL/blob/master/front-end/javascript/what-is-function-program.md)，绝对会很美味。当然，如果配合着[柯里化函数](https://github.com/xiaohesong/TIL/blob/master/front-end/javascript/higher-order-function/curry.md)一起看，那就更棒了。
