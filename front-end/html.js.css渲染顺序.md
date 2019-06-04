@@ -11,7 +11,7 @@
 
 `css`其实也会阻塞,不要只以为`js`会阻塞.
 
-CSS会阻塞渲染树的构建，但是不会阻塞DOM构建，但是在CSSOM构建完成之前，页面不会开始渲染（一片空白）.会等待`css规则树`
+CSS会阻塞渲染树的构建，但是不会阻塞DOM构建，但是在CSSOM构建完成之前，页面不会开始渲染（一片空白）.会等待`css规则树`。[如何优化css阻塞](https://github.com/xiaohesong/TIL/blob/master/front-end/javascript/performance/blocking-css.md)
 
 与js不一样，js虽然会阻塞后续DOM构建，但是前面已经就绪的内容会进行渲染。CSS虽然不阻塞DOM构建，但是会阻塞后面js的执行，从而间接阻塞完整DOM的构建
 
