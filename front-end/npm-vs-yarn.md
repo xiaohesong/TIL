@@ -23,6 +23,10 @@
 - 不同之处
 1. `yarn licenses ls`可以查看包的相关信息.
 
+- 对应命令行差异
+
+[commands-comparison](https://yarnpkg.com/en/docs/migrating-from-npm#toc-cli-commands-comparison)
+
 [参考地址](https://www.sitepoint.com/yarn-vs-npm/)
 
 - shrinkwrap install
