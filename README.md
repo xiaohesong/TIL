@@ -1,6 +1,4 @@
-* 本库记录自己每日学习,倾向于前端，相当于个人博客，可以在[gitbook中预览](https://xiaohesong.gitbook.io/today-i-learn/)
-* 还有一篇关于自己学习`react`的[记录](https://github.com/xiaohesong/ums/wiki)
-
+> **前置说明：** 本库记录自己前端所学, 内容在对应的文件夹下，相当于个人博客，可以在[gitbook中预览](https://xiaohesong.gitbook.io/today-i-learn/)
 
 ## 目录
 - [前端](#前端)
@@ -10,6 +8,7 @@
   - [工具](#前端工具)
 
   - [前端学习链接](#前端学习链接)
+    - [w3c](#w3c)
     - [dom](#dom)
     - [css/html](#csshtml)  
     - [js](#js)
@@ -50,6 +49,8 @@
   
 #### 前端学习链接
 
+##### w3c
+- [W3C on GitHub](https://w3c.github.io/)
 ##### dom
  - [规范 spec dom](https://dom.spec.whatwg.org/)
  
