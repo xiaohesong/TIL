@@ -58,6 +58,8 @@
  - [规范 spec html](https://html.spec.whatwg.org/)
  - [Learn to Code HTML & CSS](https://learn.shayhowe.com/html-css/)
  - [css-Learn CSS Layout](http://book.mixu.net/css/)
+ - [css指南](https://cssguidelin.es/) / [sass指南](https://sass-guidelin.es/) / [css属性](https://cssreference.io/)
+ - [代码指南html&css](https://codeguide.co/)
  - [Concise courses for badass web developers](https://egghead.io/)
  - [30-seconds-of-css](https://github.com/atomiks/30-seconds-of-css)
  - [HTML Tutorials. And Stuff.](http://htmldog.com/)
