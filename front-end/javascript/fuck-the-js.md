@@ -1,4 +1,4 @@
-[fuck js 系列](https://github.com/denysdovhan/wtfjs)
+## [fuck js 系列](https://github.com/denysdovhan/wtfjs)
 - null vs 0
 
 ```js
@@ -33,3 +33,28 @@ a >= b;	// true
 ```
 看代码，可能会产生疑问。`a < b`是相当于`[object object] < [object object]`,我们知道两个字符串在进行比较的时候，是逐字符串字典顺序比较的，但是这个比较奇怪，不会按照字典顺序比较。
 他的比较`a <= b`实际是通过先比较`b < a`，然后对`b < a`的结果取反，我们知道`b < a`是`false`，所以取反的结果就是`true`.
+
+## 操蛋系列
+
+```js
+const p = Promise.resolve();
+
+p.then(() => console.log('then3'));
+(async function() {
+    await p;
+    console.log('after await1')
+    await p;
+    console.log('after await2')
+})()
+
+p.then(() => console.log('then1'))
+  .then(() => console.log('then2'));
+```
+
+你觉得上面会输出什么？两个都是微任务。不能单一的说输出啥，记得环境。
+
+以浏览器端来说，当前的chrome版本(v75.0.3770.100)的行为和node8版本的行为差不多，但是如果你切换到node10去跑，又是另外一种结果。
+
+好吧，或许你可以看这里再了解了解吧。
+
+看看[更快的async和promise](https://github.com/xiaohesong/TIL/blob/master/front-end/javascript/engines/%E6%9B%B4%E5%BF%AB%E7%9A%84%E5%BC%82%E6%AD%A5%E5%8A%9F%E8%83%BD%E5%92%8Cpromise.md)这篇文章。
