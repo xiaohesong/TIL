@@ -12,6 +12,7 @@
     - [dom](#dom)
     - [css/html](#csshtml)  
     - [js](#js)
+    - [Images](#images)
     - [ts](#ts)
     - [flex](#flex)
     - [react](#react)
@@ -78,6 +79,9 @@
  - [v8 dev](https://v8.dev/)
  - [front-end masters](https://frontendmasters.com/)
 
+##### images
+ - [Image optimization, An eBook by Addy Osmani](https://images.guide/)
+ 
 ##### ts
  - [free typescript course](https://scrimba.com/g/gintrototypescript), 对应的，你应该在[这个网站](https://scrimba.com/)找到一些其他的学习资源
 ##### flex
