@@ -130,7 +130,7 @@
 ## 推荐书籍
 - [understanding es6](https://leanpub.com/understandinges6/)
 - [javascript高级程序设计3](http://www.wrox.com/WileyCDA/WroxTitle/Professional-JavaScript-for-Web-Developers-3rd-Edition.productCd-1118026691.html)
-- [exploring es6](http://exploringjs.com/es6/index.html)
+- [exploring es6](http://exploringjs.com/es6/index.html) / 本站下[其他书籍](https://exploringjs.com/)
 - [you don't known js](https://github.com/getify/You-Dont-Know-JS)
 - [Eloquent JavaScript - 3rd edition](https://eloquentjavascript.net/index.html)
 - [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript)
