@@ -98,6 +98,7 @@
  - [javascript is sexy](http://javascriptissexy.com/)
  - [Dr. Axel Rauschmayer](http://2ality.com/)
  - [Mrale's blog](https://mrale.ph/)
+ - [Dmitry Soshnikov - how to read ecma](http://dmitrysoshnikov.com/)
 
 ##### 性能相关
 ###### 懒加载
