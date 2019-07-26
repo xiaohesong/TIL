@@ -100,6 +100,7 @@
  - [Mrale's blog](https://mrale.ph/)
  - [Dmitry Soshnikov - how to read ecma](http://dmitrysoshnikov.com/)
  - [scotch](https://scotch.io/tutorials) -- 这个网站还有其他不错的资源
+ - [self-growth](https://www.robinwieruch.de/)
 
 ##### 性能相关
 ###### 懒加载
