@@ -2237,6 +2237,54 @@ Generator是一种新的ES6函数类型，它不像普通函数那样运行到�
 
 ### 译者总结
 
+你也可以看之前`Understanding ES6`的[generator和iterator介绍](https://github.com/xiaohesong/til/blob/master/front-end/es6/understanding-es6/iterators%26generators.md)
+
+- 接收参数
+
+```js
+function *run() {
+    console.log(yield 'xiaohesong')
+}
+
+r = run()
+r.next(1)
+r.next(2)
+```
+
+你觉得上面的代码会返回或输出什么？
+
+```js
+r.next(1) // {done: false, value: 'xiaohesong'}
+r.next(2) // 2
+```
+
+为什么会这样输出？第一个`next`(就是`r.next(1)`)的时候，碰到`yield`就暂停且返回`yield`的值(`'xiaohesong'`)，到这里，第一次`next`就这样结束了，但是generator没有结束，所以返回的是`{done: false, value: 'xiaohesong'}`，接下来就是`r.next(2)`这个第二次的next了，他会进行赋值，有`yield 'xiaohesong'`去接收这个`2`的赋值，所以打印出来是`2。`
+
+和你想的一样吗？如果和你想的不一样，那你可以尝试这样思考：
+
+```js
+function *run() {
+    const xiaohesong = yield xiaohesong
+    console.log(xiaohesong)
+}
+
+r = run()
+r.next(1)
+r.next(2)
+```
+
+这样是不是稍微好理解一点啦？
+
+所以知道为啥第一次`next`传递的参数都会丢失了吧。
+
 - 终止generator
 
 一个generator的iterator可以被从外部通过`return`来终止当前的iterator实例，当然，终止了，那返回的对象就是`done: true`了。
+
+```js
+function *run() {
+  console.log(yield 'xiaohesong')
+}
+r = run()
+r.return('didmehh@163.com') //{value: "didmehh@163.com", done: true}
+```
