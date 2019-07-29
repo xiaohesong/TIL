@@ -110,7 +110,7 @@
  - [Google PageSpeed Insights](https://developers.google.com/speed/docs/insights/rules?csw=1)
  - [YaHoo Best Practices for Speeding Up Your Web Site](https://developer.yahoo.com/performance/rules.html?guccounter=1)
  - [Steve Souders - 14 Rules for Faster-Loading Web Sites](http://stevesouders.com/hpws/rules.php)
- - [性能检查列表](https://www.smashingmagazine.com/2018/01/front-end-performance-checklist-2018-pdf-pages/)
+ - [性能检查列表](https://www.smashingmagazine.com/2018/01/front-end-performance-checklist-2018-pdf-pages/) -- 这网站下的内容也很丰富哦
 #### 浏览器
  - [浏览器原理](https://www.html5rocks.com/zh/tutorials/internals/howbrowserswork/)
  
