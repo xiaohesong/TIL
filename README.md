@@ -70,7 +70,7 @@
  - [Series - How JavaScript works: an overview of the engine, the runtime, and the call stack](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
  - [js 宏任务 微任务是怎么执行的 - Jake](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
    - [Jake的视频演讲](https://www.youtube.com/watch?v=cCOL7MC4Pl0&t=22s)
- - [variables-lifecycle-and-why-let-is-not-hoisted](https://dmitripavlutin.com/variables-lifecycle-and-why-let-is-not-hoisted/)
+ - [variables-lifecycle-and-why-let-is-not-hoisted](https://dmitripavlutin.com/variables-lifecycle-and-why-let-is-not-hoisted/) -- 此人博客值得一读
  - [`javascript`设计模式](http://wiki.jikexueyuan.com/project/javascript-design-patterns/constructor-mode.html)
  - [`ECMAscript`规范](https://www.ecma-international.org/ecma-262/#sec-intro)
  - [Learn Plain JavaScript from Top Articles for the Past Year (v.2018)](https://medium.mybridge.co/learn-plain-javascript-from-top-tutorials-for-the-past-year-v-2018-d964bc597a45)
@@ -101,6 +101,7 @@
  - [Dmitry Soshnikov - how to read ecma](http://dmitrysoshnikov.com/)
  - [scotch](https://scotch.io/tutorials) -- 这个网站还有其他不错的资源
  - [self-growth](https://www.robinwieruch.de/)
+ - [Krasimir -- krasimirtsonev](https://krasimirtsonev.com/blog/category/JavaScript)
 
 ##### 性能相关
 ###### 懒加载
