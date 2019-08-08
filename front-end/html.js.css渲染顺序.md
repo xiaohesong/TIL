@@ -25,6 +25,13 @@ HTML解析器在遇到脚本文件时，默认会停下来去获取脚本（不�
 
 [js 通过async和defer加载](https://github.com/xiaohesong/TIL/blob/master/front-end/javascript/events/%E9%A1%B5%E9%9D%A2%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md#domcontentloaded-and-scripts)
 
+#### 渲染的关键词
+- **关键资源：** 可能阻止网页首次渲染的资源。
+
+- **关键路径长度** 获取所有关键资源所需的往返次数或总时间。
+
+- **关键字节：**  实现网页首次渲染所需的总字节数，它是所有关键资源传送文件大小的总和。
+
 #### 进程线程
 
 *为什么js加载执行会阻塞渲染树构建*
