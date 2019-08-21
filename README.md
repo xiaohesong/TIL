@@ -93,6 +93,7 @@
  - [个人学习react记录](https://github.com/xiaohesong/ums/wiki)
  - [30天学习react](https://www.fullstackreact.com/30-days-of-react/)
 ##### blog
+ - [Nicholas C. Zakas](https://humanwhocodes.com/)
  - [Jake google developer](https://jakearchibald.com/)
  - [David Shariff blog](http://davidshariff.com/blog/)
  - [Benedikt Meurer blog](https://benediktmeurer.de/)
