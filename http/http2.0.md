@@ -1,4 +1,4 @@
-http2.0最近好像又有点火起来的感觉。先简单的介绍下http/2的一些特性。其实http2.0主要是让我们的应用更快更稳定更简单。可以进行进一步的应用优化以及性能提升。
+http2.0最近好像又有点火起来的感觉。先简单的介绍下http/2的一些特性。其实http2.0主要是让我们的应用更快更稳定更简单。可以进行进一步的应用优化以及性能提升。还是基于tls的，所以得https的。
 
 HTTP/2的主要目标是通过启用完整的请求和响应多路复用来降低延迟，通过有效压缩HTTP头字段来最小化协议开销，并添加对请求优先级和服务器推送的支持。 为达成这些目标，HTTP/2 还给我们带来了大量其他协议层面的辅助实现，例如新的流控制、错误处理和升级机制。上述几种机制虽然不是全部，但却是最重要的，每一位网络开发者都应该理解并在自己的应用中加以利用。
 
@@ -123,3 +123,19 @@ HTTP/2 新增的另一个强大的新功能是，服务器可以对一个客户�
 
 [本文摘自 -- HTTP/2 简介](https://developers.google.com/web/fundamentals/performance/http2/?hl=zh-cn#top_of_page)
 
+
+### 使用
+介绍了那么多，怎么使用呢？嗨，还好，之前用得是https。
+怎么使用，加行配置
+```conf
+listen 443 ssl http2; 
+```
+后面那个http2就是后面加上得。nginx reload后重启不行([安装插件查看](https://chrome.google.com/webstore/detail/http2-and-spdy-indicator/mpbpobfflnpcgagjijhmgnchggcjblin?hl=zh-CN)http2)。好吧，要依赖得：
+
+- nginx版本不低于1.9.5  
+- openssl版本不低于1.0.2
+- 使用不低于tls1.2得协议
+
+```conf
+ssl_protocols TLSv1.2;
+```
