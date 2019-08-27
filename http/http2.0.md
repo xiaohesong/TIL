@@ -139,3 +139,5 @@ listen 443 ssl http2;
 ```conf
 ssl_protocols TLSv1.2;
 ```
+
+[使用参考 -- How to Enable HTTP/2 in Nginx](https://www.howtoforge.com/how-to-enable-http-2-in-nginx/)
