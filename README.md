@@ -105,6 +105,7 @@
  - [scotch](https://scotch.io/tutorials) -- 这个网站还有其他不错的资源
  - [self-growth](https://www.robinwieruch.de/)
  - [Krasimir -- krasimirtsonev](https://krasimirtsonev.com/blog/category/JavaScript)
+ - [chromium blog](https://blog.chromium.org)
 
 ##### 性能相关
 ###### 懒加载
@@ -141,3 +142,4 @@
 - [you don't known js](https://github.com/getify/You-Dont-Know-JS)
 - [Eloquent JavaScript - 3rd edition](https://eloquentjavascript.net/index.html)
 - [Learning JavaScript Design Patterns](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#revealingmodulepatternjavascript)
+- [High Performance Browser Networking](https://hpbn.co/)
