@@ -30,6 +30,13 @@ let node = {
 let { type: localType, name: localName = "bar" } = node;
 ```
 
+> 注意，这个默认值仅为`undefined`的值进行赋值。
+> ```js
+> const obj = {name: null, age: false, fullname: undefined}
+> const {name = 'xiaohesong', age = 18, fullname = 'xiaohesong'} = obj
+>```
+> 所以你试试结果论证一把。
+
 - 嵌套的玩法
 
 ```javascript
