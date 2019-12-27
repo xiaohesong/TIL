@@ -93,6 +93,7 @@
 ##### react
  - [个人学习react记录](https://github.com/xiaohesong/ums/wiki)
  - [30天学习react](https://www.fullstackreact.com/30-days-of-react/)
+ - [https://pomb.us/build-your-own-react/](构建你自己的React)
 ##### blog
  - [Nicholas C. Zakas](https://humanwhocodes.com/)
  - [Jake google developer](https://jakearchibald.com/)
