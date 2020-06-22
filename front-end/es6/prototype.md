@@ -132,4 +132,4 @@ Foo.prototype = Object.create(Bar.prototype) //3
 
 这几种不能单纯的说好或者不好，毕竟每种都有他应用的场景。
   
-具体可以参考[(Prototypal) Inheritance](https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch5.md#prototypal-inheritance)
+具体可以参考[(Prototypal) Inheritance](https://github.com/xiaohesong/TIL/blob/master/front-end/javascript/you-dont-known-js/this%20%26%20object%20prototypes/chapter5-prototype.md#prototypal-inheritance)
