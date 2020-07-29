@@ -36,6 +36,8 @@ let { type: localType, name: localName = "bar" } = node;
 > const {name = 'xiaohesong', age = 18, fullname = 'xiaohesong'} = obj
 >```
 > 所以你试试结果论证一把。
+>
+> 如果不只是想对`undefined`解构，可以使用译者写的一个插件： [babel-plugin-use-or-operator-for-destructuring-default-value](https://github.com/xiaohesong/babel-plugin-use-or-operator-for-destructuring-default-value)
 
 - 嵌套的玩法
 
