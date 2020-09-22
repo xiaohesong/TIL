@@ -49,7 +49,7 @@
 - [前端工具，你知道或者不知道的](http://frontendtools.com/)
 - [执行上下文，堆栈查看](http://latentflip.com/loupe/)
 - [dev docs -- 程序员的百科大全？](https://devdocs.io)
-  
+- [web skills](https://andreasbm.github.io/web-skills/?compact)
 
 #### 前端学习链接
 
