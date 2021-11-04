@@ -376,17 +376,25 @@ https://github.com/webpack/webpack/issues/12102
 
 https://github.com/webpack/webpack/issues/12102#issuecomment-738665508
 
+https://github.com/webpack/webpack/issues/12102#issuecomment-828673264
+
+优化空间：
+
+https://github.com/webpack/webpack/issues/12102#issuecomment-938544497
 
 
-```js
-compiler.hooks.afterPlugins.tap(pluginName, () => {
-	tsCheckerHooks.serviceBeforeStart.tapPromise(pluginName, () => {
-    // ...
-  })
-})
-
-```
-
+> In the last weeks we spend a bit time optimizing rebuild performance further.
+>
+> - We added a new experimental flag `experiments.cacheUnaffected` which improves rebuild performance by detecting modules unaffected by the current change and skipping computation for them.
+> - We added a new faster hashing algorithm `output.hashFunction: "xxhash64"` which is implemented in assemblyscript and a bit faster compared to the default one
+> - We improved `module.unsafeCache` to be much faster
+> - We added `experiments.futureDefaults` which enables `experiments.cacheUnaffected`, `output.hashFunction: "xxhash64"` and a few other things.
+>
+> With `experiments.futureDefaults` and `module.unsafeCache` we now see all of our benchmarks (https://webpack.github.io/benchmark/) being faster in webpack 5 compared to webpack 4.
+>
+> If that's not enough, webpack 5 has `optimization.sideEffects` enabled by default, while webpack 4 had that disabled by default. You can use `optimization.sideEffects: false` to disable that for webpack 5 too.
+>
+> Need more even more speed? You can also use `optmization.providedExports: false` to disable another expensive step in the build. (This might break some apps which use complex circular ESM reexports) (We eventually add caching for that step to `cacheUnaffected`, which would make it fast without the need to disable it)
 
 
 
