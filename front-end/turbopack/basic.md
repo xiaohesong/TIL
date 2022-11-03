@@ -14,3 +14,7 @@ https://github.com/vercel/turbo/issues/2562
 https://github.com/vercel/turbo/pull/2561/files
 
 值得一提的是，turbopack可持续关注，
+
+目前从webpack迁移到turbopack还在开发中，不过也是迟早的事了。
+
+具体迁移情况关注：https://turbo.build/pack/docs/migrating-from-webpack
