@@ -111,6 +111,7 @@
  - [google surma](https://dassur.ma)
  - [telerik blogs](https://www.telerik.com/blogs/journey-of-javascript-downloading-scripts-to-execution-part-ii) -- 这个域名下的文章看看也很不错
  - [Mark's Dev Blog](https://blog.isquaredsoftware.com/)
+ - [前端这些有趣的库](https://weekly.shanyue.tech/package/)
 
 ##### 性能相关
 ###### 懒加载
