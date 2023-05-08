@@ -81,6 +81,7 @@
  - [4 Types of Memory Leaks in JavaScript and How to Get Rid Of Them](https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/)
  - [v8 dev](https://v8.dev/)
  - [front-end masters](https://frontendmasters.com/)
+ - [Data Structures and Algorithms in Javascript](https://learnersbucket.com)
 
 ##### images
  - [Image optimization, An eBook by Addy Osmani](https://images.guide/)
