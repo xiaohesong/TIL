@@ -1,9 +1,4 @@
----
-### 求帮忙内推工作呐：
 
-学历大专，学历卡的没面试机会了, email： didmehh163@gmail.com
-
----
 
 > **前置说明：** 本库记录自己前端所学, 内容在对应的文件夹下，相当于个人博客，可以在[gitbook 中预览](https://xiaohesong.gitbook.io/today-i-learn/)
 
